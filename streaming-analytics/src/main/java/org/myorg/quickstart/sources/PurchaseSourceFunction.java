@@ -1,14 +1,15 @@
 package org.myorg.quickstart.sources;
 
+import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
-import org.myorg.quickstart.entities.Purchase;
+import org.myorg.quickstart.entities.PurchaseSourceObject;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
-public class PurchaseSourceFunction extends RichSourceFunction<Purchase> {
+public class PurchaseSourceFunction extends RichSourceFunction<PurchaseSourceObject> {
     private transient boolean isRunning;
     private transient Random random;
     private transient List<String> countries;
@@ -16,24 +17,25 @@ public class PurchaseSourceFunction extends RichSourceFunction<Purchase> {
     private transient List<String> loyaltyLevels;
 
     @Override
-    public void open(Configuration parameters) throws Exception {
-        super.open(parameters);
+    public void open(OpenContext openContext) throws Exception {
+        super.open(openContext);
+        this.isRunning = true;
         this.random = new Random();
     }
 
     @Override
-    public void run(SourceContext<Purchase> sourceContext) throws Exception {
+    public void run(SourceContext<PurchaseSourceObject> sourceContext) throws Exception {
         while (this.isRunning) {
-            Purchase purchase = new Purchase();
+            PurchaseSourceObject purchaseSourceObject = new PurchaseSourceObject();
             // make a random purchase object
-            purchase.setPurchaseId("purchase" + random.nextInt(5));
-            purchase.setCustomerId("customer" + random.nextInt(5));
-            purchase.setPurchaseId("product" + random.nextInt(5));
+            purchaseSourceObject.setPurchaseId("purchase" + random.nextInt(5));
+            purchaseSourceObject.setCustomerId("customer" + random.nextInt(5));
+            purchaseSourceObject.setPurchaseId("product" + random.nextInt(5));
             // todo timestamp
-            purchase.setUnitPrice(random.nextFloat() * 100);
-            purchase.setNumUnits(random.nextInt(5));
-            sourceContext.collect(purchase);
-            Thread.sleep(Duration.ofSeconds(random.nextInt(5)));
+            purchaseSourceObject.setUnitPrice(random.nextFloat() * 100);
+            purchaseSourceObject.setNumUnits(random.nextInt(5));
+            sourceContext.collect(purchaseSourceObject);
+            Thread.sleep(random.nextInt(5) * 1000);
         }
     }
 

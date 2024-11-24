@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"purchaseId", "customerId", "productId"})
-public class Purchase {
+public class PurchaseSourceObject {
     private String purchaseId;
     private String customerId;
     private String productId;

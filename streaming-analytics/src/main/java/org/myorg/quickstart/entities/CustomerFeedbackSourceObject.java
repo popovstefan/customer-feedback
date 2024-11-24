@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"customerId", "purchaseId"})
-public class CustomerFeedback {
+public class CustomerFeedbackSourceObject {
     private String customerId;
     private String purchaseId;
     private long dateOfBirth;
