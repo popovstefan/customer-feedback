@@ -13,6 +13,6 @@ public class Purchase {
     private String customerId;
     private String productId;
     private long timestamp;
-    private double unitAmount;
+    private double unitPrice;
     private int numUnits;
 }
