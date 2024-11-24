@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"customerId"})
-public class SatisfactionScorePrediction {
+public class CustomerPurchaseHistory {
     private String customerId;
     private ModelInputFeatures modelInputFeatures;
     private ModelOutputFeatures modelOutputFeatures;

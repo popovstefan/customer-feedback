@@ -21,8 +21,10 @@ package org.myorg.quickstart;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
+import org.myorg.quickstart.connectors.ConnectFeedbacksAndPurchases;
 import org.myorg.quickstart.entities.CustomerFeedbackSourceObject;
 import org.myorg.quickstart.entities.PurchaseSourceObject;
+import org.myorg.quickstart.entities.CustomerPurchaseHistory;
 import org.myorg.quickstart.sources.CustomerFeedbackSourceFunction;
 import org.myorg.quickstart.sources.PurchaseSourceFunction;
 
@@ -45,36 +47,27 @@ public class DataStreamJob {
         // to building Flink applications.
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
+        // declare the SourceFunctions
         SourceFunction<PurchaseSourceObject> purchaseSourceFunction = new PurchaseSourceFunction();
         SourceFunction<CustomerFeedbackSourceObject> customerFeedbackSourceFunction = new CustomerFeedbackSourceFunction();
 
+        // add them to the execution environment, which turns them into data streams
         DataStream<PurchaseSourceObject> purchaseDataStream = env.addSource(purchaseSourceFunction);
         DataStream<CustomerFeedbackSourceObject> customerFeedbackDataStream = env.addSource(customerFeedbackSourceFunction);
 
-        customerFeedbackDataStream.print();
-        purchaseDataStream.print();
+        // key-by, then connect the two streams, and process them
+        DataStream<CustomerPurchaseHistory> customerPurchaseHistoryDataStream = purchaseDataStream
+                .keyBy(PurchaseSourceObject::getCustomerId)
+                .connect(customerFeedbackDataStream.keyBy(CustomerFeedbackSourceObject::getCustomerId))
+                .process(new ConnectFeedbacksAndPurchases())
+                .name(ConnectFeedbacksAndPurchases.class.getName())
+                .uid(ConnectFeedbacksAndPurchases.class.getName());
 
-        /*
-         * Here, you can start creating your execution plan for Flink.
-         *
-         * Start with getting some data from the environment, like
-         * 	env.fromSequence(1, 10);
-         *
-         * then, transform the resulting DataStream<Long> using operations
-         * like
-         * 	.filter()
-         * 	.flatMap()
-         * 	.window()
-         * 	.process()
-         *
-         * and many more.
-         * Have a look at the programming guide:
-         *
-         * https://nightlies.apache.org/flink/flink-docs-stable/
-         *
-         */
+        // todo make predictions on the customers' purchase histories
+
+        customerPurchaseHistoryDataStream.print();
 
         // Execute program, beginning computation.
-        env.execute("Flink Java API Skeleton");
+        env.execute("Customer Satisfaction Score Prediction");
     }
 }

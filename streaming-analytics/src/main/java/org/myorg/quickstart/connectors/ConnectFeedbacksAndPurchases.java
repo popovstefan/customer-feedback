@@ -11,21 +11,21 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ConnectFeedbacksAndPurchases extends KeyedCoProcessFunction<String, PurchaseSourceObject, CustomerFeedbackSourceObject, SatisfactionScorePrediction> {
+public class ConnectFeedbacksAndPurchases extends KeyedCoProcessFunction<String, PurchaseSourceObject, CustomerFeedbackSourceObject, CustomerPurchaseHistory> {
     private MapState<Long, String> recentPurchases;
 
     @Override
     public void processElement1(PurchaseSourceObject purchaseSourceObject,
-                                KeyedCoProcessFunction<String, PurchaseSourceObject, CustomerFeedbackSourceObject, SatisfactionScorePrediction>.Context context,
-                                Collector<SatisfactionScorePrediction> collector) throws Exception {
+                                KeyedCoProcessFunction<String, PurchaseSourceObject, CustomerFeedbackSourceObject, CustomerPurchaseHistory>.Context context,
+                                Collector<CustomerPurchaseHistory> collector) throws Exception {
         recentPurchases.put(purchaseSourceObject.getTimestamp(), purchaseSourceObject.getPurchaseId());
     }
 
     @Override
     public void processElement2(CustomerFeedbackSourceObject customerFeedbackSourceObject,
-                                KeyedCoProcessFunction<String, PurchaseSourceObject, CustomerFeedbackSourceObject, SatisfactionScorePrediction>.Context context,
-                                Collector<SatisfactionScorePrediction> collector) throws Exception {
-        SatisfactionScorePrediction scorePrediction = new SatisfactionScorePrediction();
+                                KeyedCoProcessFunction<String, PurchaseSourceObject, CustomerFeedbackSourceObject, CustomerPurchaseHistory>.Context context,
+                                Collector<CustomerPurchaseHistory> collector) throws Exception {
+        CustomerPurchaseHistory scorePrediction = new CustomerPurchaseHistory();
         scorePrediction.setCustomerId(customerFeedbackSourceObject.getCustomerId());
         ModelInputFeatures modelInputFeatures = new ModelInputFeatures();
         modelInputFeatures.setProductQuality(customerFeedbackSourceObject.getProductQuality());
