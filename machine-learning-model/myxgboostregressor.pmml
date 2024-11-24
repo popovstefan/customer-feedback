@@ -1,0 +1,4040 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.111.1"/>
+		<Timestamp>2024-11-24T20:55:49Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('regressor', XGBRegressor(base_score=85.25441651763941, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=None, device=None, early_stopping_rounds=5,
+             enable_categorical=False, eval_metric='rmse', feature_types=None,
+             gamma=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=None, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=None, max_leaves=None,
+             min_child_weight=None, missing=nan, monotone_constraints=None,
+             multi_strategy=None, n_estimators=1000, n_jobs=None,
+             num_parallel_tree=None, random_state=42, ...))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="SatisfactionScore" optype="continuous" dataType="float"/>
+		<DataField name="Age" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Income" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="ProductQuality" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="ServiceQuality" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="PurchaseFrequency" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Gender__Female" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Country__Canada" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Country__France" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Country__Germany" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Country__UK" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="Country__USA" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="FeedbackScore__High" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="FeedbackScore__Low" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="FeedbackScore__Medium" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="LoyaltyLevel__Bronze" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="LoyaltyLevel__Gold" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+		<DataField name="LoyaltyLevel__Silver" optype="continuous" dataType="float">
+			<Value value="NaN" property="missing"/>
+		</DataField>
+	</DataDictionary>
+	<MiningModel functionName="regression" algorithmName="XGBoost (GBTree)" x-mathContext="float">
+		<MiningSchema>
+			<MiningField name="SatisfactionScore" usageType="target"/>
+			<MiningField name="Age"/>
+			<MiningField name="Income"/>
+			<MiningField name="ProductQuality"/>
+			<MiningField name="ServiceQuality"/>
+			<MiningField name="PurchaseFrequency"/>
+			<MiningField name="Gender__Female"/>
+			<MiningField name="Country__Canada"/>
+			<MiningField name="Country__France"/>
+			<MiningField name="Country__Germany"/>
+			<MiningField name="Country__UK"/>
+			<MiningField name="Country__USA"/>
+			<MiningField name="FeedbackScore__High"/>
+			<MiningField name="FeedbackScore__Low"/>
+			<MiningField name="FeedbackScore__Medium"/>
+			<MiningField name="LoyaltyLevel__Bronze"/>
+			<MiningField name="LoyaltyLevel__Gold"/>
+			<MiningField name="LoyaltyLevel__Silver"/>
+		</MiningSchema>
+		<Targets>
+			<Target field="SatisfactionScore" rescaleConstant="85.25442"/>
+		</Targets>
+		<Segmentation multipleModelMethod="sum" missingPredictionTreatment="returnMissing">
+			<Segment id="1">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+					</MiningSchema>
+					<Node score="4.376851">
+						<True/>
+						<Node score="3.8279006">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+							<Node score="-0.17716902">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-4.0348825">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+									<Node score="-7.709525">
+										<SimplePredicate field="Income" operator="lessThan" value="68461.0"/>
+										<Node score="-11.20698">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+											<Node score="-13.47788">
+												<SimplePredicate field="Age" operator="lessThan" value="40.0"/>
+											</Node>
+										</Node>
+										<Node score="-10.407324">
+											<SimplePredicate field="Age" operator="lessThan" value="45.0"/>
+										</Node>
+									</Node>
+									<Node score="-7.70713">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+										<Node score="-9.964473">
+											<SimplePredicate field="Age" operator="lessThan" value="43.0"/>
+										</Node>
+									</Node>
+									<Node score="-6.710061">
+										<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+									</Node>
+								</Node>
+								<Node score="-3.5709882">
+									<SimplePredicate field="Income" operator="lessThan" value="79006.0"/>
+									<Node score="-5.9390926">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+										<Node score="-8.744213">
+											<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+										</Node>
+									</Node>
+									<Node score="-6.1853824">
+										<SimplePredicate field="Age" operator="lessThan" value="47.0"/>
+									</Node>
+								</Node>
+								<Node score="-3.2751422">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									<Node score="-5.544549">
+										<SimplePredicate field="Age" operator="lessThan" value="48.0"/>
+									</Node>
+								</Node>
+								<Node score="-2.6147416">
+									<SimplePredicate field="Age" operator="lessThan" value="47.0"/>
+								</Node>
+							</Node>
+							<Node score="2.3105013">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.024242952">
+									<SimplePredicate field="Income" operator="lessThan" value="74542.0"/>
+									<Node score="-2.6018684">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+										<Node score="-5.229511">
+											<SimplePredicate field="Age" operator="lessThan" value="51.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.5347605">
+										<SimplePredicate field="Age" operator="lessThan" value="46.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.24339335">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									<Node score="-2.2326071">
+										<SimplePredicate field="Age" operator="lessThan" value="39.0"/>
+									</Node>
+								</Node>
+								<Node score="0.412268">
+									<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+								</Node>
+							</Node>
+							<Node score="2.0310016">
+								<SimplePredicate field="Income" operator="lessThan" value="74932.0"/>
+								<Node score="0.3259677">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									<Node score="-1.7404188">
+										<SimplePredicate field="Age" operator="lessThan" value="47.0"/>
+									</Node>
+								</Node>
+								<Node score="0.28607723">
+									<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+								</Node>
+							</Node>
+							<Node score="2.6574895">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+								<Node score="0.8721606">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="2.8447042">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="3.9107435">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+							<Node score="2.3398798">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								<Node score="-1.3059894">
+									<SimplePredicate field="Income" operator="lessThan" value="75297.0"/>
+									<Node score="-4.169743">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+										<Node score="-6.6536684">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.6733778">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.0322274">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+									<Node score="-3.4495091">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="0.2879237">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="2.415598">
+								<SimplePredicate field="Income" operator="lessThan" value="72839.0"/>
+								<Node score="-0.21207927">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+									<Node score="-2.5698242">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="1.0032679">
+									<SimplePredicate field="Age" operator="lessThan" value="41.0"/>
+								</Node>
+							</Node>
+							<Node score="1.782522">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								<Node score="-0.94782805">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+								</Node>
+							</Node>
+							<Node score="2.6809378">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+							</Node>
+						</Node>
+						<Node score="4.1689005">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							<Node score="3.2955317">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="1.1749871">
+									<SimplePredicate field="Income" operator="lessThan" value="73230.0"/>
+									<Node score="-1.0022238">
+										<SimplePredicate field="Age" operator="lessThan" value="49.0"/>
+									</Node>
+								</Node>
+								<Node score="1.6301806">
+									<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+								</Node>
+							</Node>
+							<Node score="3.4839115">
+								<SimplePredicate field="Income" operator="lessThan" value="60383.0"/>
+								<Node score="1.7921009">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="3.394025">
+								<SimplePredicate field="Age" operator="lessThan" value="36.0"/>
+							</Node>
+						</Node>
+						<Node score="4.098687">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+							<Node score="3.0552597">
+								<SimplePredicate field="Income" operator="lessThan" value="60795.0"/>
+								<Node score="1.2484293">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								</Node>
+							</Node>
+							<Node score="3.3141305">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="4.1888466">
+							<SimplePredicate field="Income" operator="lessThan" value="50916.0"/>
+							<Node score="3.458271">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="4.199074">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="2">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+					</MiningSchema>
+					<Node score="3.062702">
+						<True/>
+						<Node score="3.0556073">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+							<Node score="1.1870574">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+								<Node score="-2.8682919">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									<Node score="-5.33811">
+										<SimplePredicate field="Income" operator="lessThan" value="72059.0"/>
+										<Node score="-8.3140745">
+											<SimplePredicate field="Income" operator="lessThan" value="44511.0"/>
+											<Node score="-10.578358">
+												<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+											</Node>
+										</Node>
+										<Node score="-7.372257">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+										</Node>
+									</Node>
+									<Node score="-4.4433746">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+										<Node score="-6.4906363">
+											<SimplePredicate field="Age" operator="lessThan" value="58.0"/>
+										</Node>
+									</Node>
+									<Node score="-4.886528">
+										<SimplePredicate field="Age" operator="lessThan" value="44.0"/>
+									</Node>
+								</Node>
+								<Node score="-2.809432">
+									<SimplePredicate field="Income" operator="lessThan" value="94798.0"/>
+									<Node score="-4.361937">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+										<Node score="-6.7499013">
+											<SimplePredicate field="Age" operator="lessThan" value="55.0"/>
+										</Node>
+									</Node>
+									<Node score="-4.761862">
+										<SimplePredicate field="Age" operator="lessThan" value="44.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.4468614">
+									<SimplePredicate field="Age" operator="lessThan" value="50.0"/>
+									<Node score="-3.3892672">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.97279114">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+								</Node>
+							</Node>
+							<Node score="2.677062">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+								<Node score="0.4246042">
+									<SimplePredicate field="Income" operator="lessThan" value="80461.0"/>
+									<Node score="-1.1005272">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+										<Node score="-3.0914648">
+											<SimplePredicate field="Age" operator="lessThan" value="53.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.3823797">
+										<SimplePredicate field="Age" operator="lessThan" value="45.0"/>
+									</Node>
+								</Node>
+								<Node score="1.1546102">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+									<Node score="-0.5617357">
+										<SimplePredicate field="Age" operator="lessThan" value="46.0"/>
+									</Node>
+								</Node>
+								<Node score="1.4060102">
+									<SimplePredicate field="Income" operator="lessThan" value="93805.0"/>
+								</Node>
+							</Node>
+							<Node score="2.1938424">
+								<SimplePredicate field="Income" operator="lessThan" value="57202.0"/>
+								<Node score="0.17168671">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="-2.9469838">
+										<SimplePredicate field="Age" operator="lessThan" value="48.0"/>
+									</Node>
+								</Node>
+								<Node score="0.5926487">
+									<SimplePredicate field="Age" operator="lessThan" value="57.0"/>
+								</Node>
+							</Node>
+							<Node score="1.7645621">
+								<SimplePredicate field="Age" operator="lessThan" value="39.0"/>
+								<Node score="0.04050428">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="2.0846095">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+							</Node>
+						</Node>
+						<Node score="2.4324036">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.15060368">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								<Node score="-1.7054068">
+									<SimplePredicate field="Income" operator="lessThan" value="62205.0"/>
+									<Node score="-3.6190128">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+										<Node score="-5.450864">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.397362">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.0737925">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									<Node score="-2.7997174">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.6597518">
+									<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+								</Node>
+							</Node>
+							<Node score="0.62208366">
+								<SimplePredicate field="Income" operator="lessThan" value="56838.0"/>
+								<Node score="-1.7169245">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+									<Node score="-3.2042363">
+										<SimplePredicate field="Age" operator="lessThan" value="36.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.051954">
+									<SimplePredicate field="Age" operator="lessThan" value="41.0"/>
+								</Node>
+							</Node>
+							<Node score="1.7299815">
+								<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+								<Node score="0.18642241">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="1.2555242">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+							</Node>
+						</Node>
+						<Node score="2.9854858">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+							<Node score="1.537943">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="0.7296404">
+									<SimplePredicate field="Income" operator="lessThan" value="58673.0"/>
+									<Node score="-1.8961171">
+										<SimplePredicate field="Age" operator="lessThan" value="61.0"/>
+									</Node>
+								</Node>
+								<Node score="0.018639766">
+									<SimplePredicate field="Age" operator="lessThan" value="40.0"/>
+								</Node>
+							</Node>
+							<Node score="2.1310115">
+								<SimplePredicate field="Income" operator="lessThan" value="67452.0"/>
+								<Node score="0.4175901">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="2.3407073">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="2.858542">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							<Node score="2.0931494">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.006971684">
+									<SimplePredicate field="Income" operator="lessThan" value="76268.0"/>
+								</Node>
+							</Node>
+							<Node score="1.9794146">
+								<SimplePredicate field="Income" operator="lessThan" value="74207.0"/>
+							</Node>
+						</Node>
+						<Node score="2.7726629">
+							<SimplePredicate field="Income" operator="lessThan" value="46631.0"/>
+							<Node score="1.753856">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="2.7598798">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="3">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Country__UK"/>
+					</MiningSchema>
+					<Node score="2.2383804">
+						<True/>
+						<Node score="1.8562076">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+							<Node score="0.13296187">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								<Node score="-3.283003">
+									<SimplePredicate field="Income" operator="lessThan" value="60383.0"/>
+									<Node score="-3.826954">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+										<Node score="-6.4810963">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+											<Node score="-8.19324">
+												<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+											</Node>
+										</Node>
+										<Node score="-5.977145">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+										</Node>
+									</Node>
+									<Node score="-5.2530727">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+										<Node score="-7.3021536">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+										</Node>
+									</Node>
+									<Node score="-4.6855927">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.977485">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+									<Node score="-3.7997093">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+										<Node score="-5.528379">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.5849226">
+										<SimplePredicate field="Age" operator="lessThan" value="40.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.58572">
+									<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+									<Node score="-3.6290514">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.546097">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+								</Node>
+							</Node>
+							<Node score="1.4900844">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="-0.5185403">
+									<SimplePredicate field="Income" operator="lessThan" value="88816.0"/>
+									<Node score="-1.6743816">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+										<Node score="-3.3143501">
+											<SimplePredicate field="Age" operator="lessThan" value="55.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.2224808">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node score="0.043787748">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									<Node score="-1.5972574">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.27940533">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5973302">
+								<SimplePredicate field="Income" operator="lessThan" value="56536.0"/>
+								<Node score="-1.3564191">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									<Node score="-3.6328163">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.8699896">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="0.7422738">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								<Node score="-0.76736814">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="0.953178">
+								<SimplePredicate field="Income" operator="lessThan" value="91652.0"/>
+							</Node>
+						</Node>
+						<Node score="2.046144">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.3384344">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								<Node score="-3.641185">
+									<SimplePredicate field="Income" operator="lessThan" value="56838.0"/>
+									<Node score="-2.9837086">
+										<SimplePredicate field="Age" operator="lessThan" value="47.0"/>
+										<Node score="-5.0197835">
+											<SimplePredicate field="Income" operator="lessThan" value="49195.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.0280333">
+										<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.2252123">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									<Node score="-2.5824177">
+										<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.5481457">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="0.9608119">
+								<SimplePredicate field="Income" operator="lessThan" value="86655.0"/>
+								<Node score="0.21580112">
+									<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+									<Node score="-1.5585853">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.5227959">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3563573">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+								<Node score="0.03737895">
+									<SimplePredicate field="Age" operator="lessThan" value="51.0"/>
+								</Node>
+							</Node>
+							<Node score="1.2704927">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="2.0644703">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							<Node score="1.8038144">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.081788406">
+									<SimplePredicate field="Income" operator="lessThan" value="79723.0"/>
+									<Node score="-1.6791941">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node score="0.41022018">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3496131">
+								<SimplePredicate field="Income" operator="lessThan" value="49531.0"/>
+								<Node score="-0.33516982">
+									<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+								</Node>
+							</Node>
+							<Node score="1.4211154">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="2.1116614">
+							<SimplePredicate field="Age" operator="lessThan" value="38.0"/>
+							<Node score="1.7447586">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="0.63520324">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="1.6905171">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="2.1309066">
+							<SimplePredicate field="Income" operator="lessThan" value="53554.0"/>
+							<Node score="1.2184216">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							</Node>
+						</Node>
+						<Node score="1.9971579">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="4">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+					</MiningSchema>
+					<Node score="1.5921007">
+						<True/>
+						<Node score="1.8952824">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.08500761">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								<Node score="-1.7982764">
+									<SimplePredicate field="Income" operator="lessThan" value="89483.0"/>
+									<Node score="-2.3598096">
+										<SimplePredicate field="Age" operator="lessThan" value="40.0"/>
+										<Node score="-4.114027">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+											<Node score="-5.2610803">
+												<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+											</Node>
+										</Node>
+										<Node score="-3.9001243">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.2740977">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+										<Node score="-4.762265">
+											<SimplePredicate field="Income" operator="lessThan" value="43803.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.3323402">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.5313812">
+									<SimplePredicate field="Age" operator="lessThan" value="26.0"/>
+									<Node score="-2.392189">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+										<Node score="-5.238108">
+											<SimplePredicate field="Income" operator="lessThan" value="113216.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.2985544">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.5930572">
+									<SimplePredicate field="Income" operator="lessThan" value="107405.0"/>
+									<Node score="-2.7811058">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.6842294">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="1.2166657">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								<Node score="-0.34080088">
+									<SimplePredicate field="Income" operator="lessThan" value="86987.0"/>
+									<Node score="-1.7860235">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+										<Node score="-3.2349613">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.4747281">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+									</Node>
+								</Node>
+								<Node score="0.22233324">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									<Node score="-0.85894495">
+										<SimplePredicate field="Age" operator="lessThan" value="47.0"/>
+									</Node>
+								</Node>
+								<Node score="0.008413245">
+									<SimplePredicate field="Age" operator="lessThan" value="38.0"/>
+								</Node>
+							</Node>
+							<Node score="1.1093111">
+								<SimplePredicate field="Income" operator="lessThan" value="90272.0"/>
+								<Node score="0.60960054">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+									<Node score="-0.92865497">
+										<SimplePredicate field="Age" operator="lessThan" value="53.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.163792">
+									<SimplePredicate field="Age" operator="lessThan" value="31.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3907516">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+								<Node score="-0.30276215">
+									<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3082218">
+								<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+							</Node>
+						</Node>
+						<Node score="1.2558513">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.9608737">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								<Node score="-1.9944882">
+									<SimplePredicate field="Income" operator="lessThan" value="56838.0"/>
+									<Node score="-3.27305">
+										<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+										<Node score="-5.1721125">
+											<SimplePredicate field="Income" operator="lessThan" value="36990.0"/>
+										</Node>
+									</Node>
+									<Node score="-3.9328976">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.3923336">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="-2.843898">
+										<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.79247457">
+									<SimplePredicate field="Income" operator="lessThan" value="109402.0"/>
+								</Node>
+							</Node>
+							<Node score="1.130217">
+								<SimplePredicate field="Income" operator="lessThan" value="48072.0"/>
+								<Node score="-0.2231675">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+									<Node score="-2.2698255">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.50640094">
+									<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+								</Node>
+							</Node>
+							<Node score="0.52225393">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+								<Node score="-0.6589892">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="0.34770313">
+								<SimplePredicate field="Age" operator="lessThan" value="36.0"/>
+							</Node>
+						</Node>
+						<Node score="1.5644007">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							<Node score="0.9864801">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.16623262">
+									<SimplePredicate field="Income" operator="lessThan" value="56838.0"/>
+									<Node score="-1.6927855">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.23977852">
+									<SimplePredicate field="Age" operator="lessThan" value="31.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3869717">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+								<Node score="0.1826178">
+									<SimplePredicate field="Income" operator="lessThan" value="75949.0"/>
+								</Node>
+							</Node>
+							<Node score="0.61205274">
+								<SimplePredicate field="Income" operator="lessThan" value="36680.0"/>
+							</Node>
+						</Node>
+						<Node score="1.4937171">
+							<SimplePredicate field="Income" operator="lessThan" value="52943.0"/>
+							<Node score="1.0458455">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.27433184">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="0.95346177">
+								<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+							</Node>
+						</Node>
+						<Node score="1.4558126">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+							<Node score="1.0272529">
+								<SimplePredicate field="Income" operator="lessThan" value="76936.0"/>
+							</Node>
+						</Node>
+						<Node score="1.3243589">
+							<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="5">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+					</MiningSchema>
+					<Node score="1.134982">
+						<True/>
+						<Node score="1.5477581">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+							<Node score="0.50874573">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-1.1854868">
+									<SimplePredicate field="Income" operator="lessThan" value="96589.0"/>
+									<Node score="-1.9404646">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+										<Node score="-2.7661552">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+											<Node score="-4.3481417">
+												<SimplePredicate field="Age" operator="lessThan" value="51.0"/>
+											</Node>
+										</Node>
+										<Node score="-3.601052">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.4104056">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+										<Node score="-3.660744">
+											<SimplePredicate field="Income" operator="lessThan" value="44511.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.5729716">
+										<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.76262164">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									<Node score="-3.0683968">
+										<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+										<Node score="-5.312374">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.9301318">
+										<SimplePredicate field="Income" operator="lessThan" value="111840.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.45419255">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+									<Node score="-1.5893142">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.62504053">
+									<SimplePredicate field="Age" operator="lessThan" value="39.0"/>
+								</Node>
+							</Node>
+							<Node score="0.99501">
+								<SimplePredicate field="Age" operator="lessThan" value="55.0"/>
+								<Node score="0.37017837">
+									<SimplePredicate field="Income" operator="lessThan" value="82184.0"/>
+									<Node score="-1.0828196">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+										<Node score="-2.6762793">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.64873457">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="0.9011087">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+									<Node score="-0.6837139">
+										<SimplePredicate field="Income" operator="lessThan" value="114342.0"/>
+									</Node>
+								</Node>
+								<Node score="0.26636526">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+								</Node>
+							</Node>
+							<Node score="0.93820643">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+								<Node score="0.43710318">
+									<SimplePredicate field="Income" operator="lessThan" value="48844.0"/>
+									<Node score="-1.0075438">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									</Node>
+								</Node>
+								<Node score="0.067692794">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="0.76976234">
+								<SimplePredicate field="Income" operator="lessThan" value="40991.0"/>
+								<Node score="-1.0211765">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="0.92369246">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+							</Node>
+						</Node>
+						<Node score="1.4533868">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+							<Node score="1.1938797">
+								<SimplePredicate field="Income" operator="lessThan" value="90272.0"/>
+								<Node score="-0.199555">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									<Node score="-1.2867651">
+										<SimplePredicate field="Age" operator="lessThan" value="52.0"/>
+										<Node score="-2.5116124">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.5833298">
+										<SimplePredicate field="Income" operator="lessThan" value="45545.0"/>
+									</Node>
+								</Node>
+								<Node score="0.06401273">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+									<Node score="-1.1326675">
+										<SimplePredicate field="Age" operator="lessThan" value="48.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.21487387">
+									<SimplePredicate field="Age" operator="lessThan" value="31.0"/>
+								</Node>
+							</Node>
+							<Node score="0.60686505">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+								<Node score="-0.6208028">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									<Node score="-1.8791162">
+										<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.8684594">
+									<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+								</Node>
+							</Node>
+							<Node score="0.64999294">
+								<SimplePredicate field="Age" operator="lessThan" value="37.0"/>
+								<Node score="-0.37479252">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+								</Node>
+							</Node>
+							<Node score="0.7253644">
+								<SimplePredicate field="Income" operator="lessThan" value="112523.0"/>
+							</Node>
+						</Node>
+						<Node score="1.1200185">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							<Node score="0.599397">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.30806127">
+									<SimplePredicate field="Age" operator="lessThan" value="36.0"/>
+									<Node score="-1.6615436">
+										<SimplePredicate field="Income" operator="lessThan" value="60044.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.63592815">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+								</Node>
+							</Node>
+							<Node score="1.2064767">
+								<SimplePredicate field="Income" operator="lessThan" value="45891.0"/>
+								<Node score="-0.25020543">
+									<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5244943">
+								<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+							</Node>
+						</Node>
+						<Node score="1.1605817">
+							<SimplePredicate field="Age" operator="lessThan" value="44.0"/>
+							<Node score="0.9611154">
+								<SimplePredicate field="Income" operator="lessThan" value="73230.0"/>
+								<Node score="0.14857456">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								</Node>
+							</Node>
+							<Node score="0.87183136">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+							</Node>
+						</Node>
+						<Node score="1.0950493">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+							<Node score="0.62513185">
+								<SimplePredicate field="Income" operator="lessThan" value="36297.0"/>
+							</Node>
+						</Node>
+						<Node score="1.3854731">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="6">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+					</MiningSchema>
+					<Node score="0.7699697">
+						<True/>
+						<Node score="1.1315434">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+							<Node score="1.9887892">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+								<Node score="-0.08601432">
+									<SimplePredicate field="Age" operator="lessThan" value="56.0"/>
+									<Node score="-2.422174">
+										<SimplePredicate field="Income" operator="lessThan" value="47694.0"/>
+										<Node score="-2.7514863">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+											<Node score="-3.940829">
+												<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+											</Node>
+										</Node>
+										<Node score="-3.8488114">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.46034226">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+										<Node score="-1.9774772">
+											<SimplePredicate field="Income" operator="lessThan" value="111840.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.0988384">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.48331854">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+									<Node score="0.42057675">
+										<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+										<Node score="-1.8427173">
+											<SimplePredicate field="Income" operator="lessThan" value="113216.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.5952963">
+										<SimplePredicate field="Income" operator="lessThan" value="72370.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.35118848">
+									<SimplePredicate field="Income" operator="lessThan" value="103057.0"/>
+									<Node score="-1.5385977">
+										<SimplePredicate field="Income" operator="lessThan" value="35243.0"/>
+									</Node>
+								</Node>
+								<Node score="0.35214478">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+								</Node>
+							</Node>
+							<Node score="1.8013353">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								<Node score="0.2942206">
+									<SimplePredicate field="Income" operator="lessThan" value="57202.0"/>
+									<Node score="-0.9445754">
+										<SimplePredicate field="Age" operator="lessThan" value="56.0"/>
+										<Node score="-2.3389175">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.0592455">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.29913846">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+									<Node score="-1.3216294">
+										<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+									</Node>
+								</Node>
+								<Node score="0.471433">
+									<SimplePredicate field="Age" operator="lessThan" value="59.0"/>
+								</Node>
+							</Node>
+							<Node score="0.9735127">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+								<Node score="0.14861186">
+									<SimplePredicate field="Income" operator="lessThan" value="95163.0"/>
+									<Node score="-0.7080693">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+									</Node>
+								</Node>
+								<Node score="0.25553244">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="0.96386725">
+								<SimplePredicate field="Income" operator="lessThan" value="30374.0"/>
+								<Node score="-2.9391468">
+									<SimplePredicate field="Age" operator="lessThan" value="47.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5270691">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+							</Node>
+						</Node>
+						<Node score="1.7229451">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+							<Node score="1.0752734">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								<Node score="-0.83612686">
+									<SimplePredicate field="Income" operator="lessThan" value="57202.0"/>
+									<Node score="-1.8112949">
+										<SimplePredicate field="Age" operator="lessThan" value="29.0"/>
+										<Node score="-2.846401">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.4868653">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.0803411">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+									<Node score="-0.8783764">
+										<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.021204198">
+									<SimplePredicate field="Age" operator="lessThan" value="61.0"/>
+								</Node>
+							</Node>
+							<Node score="-4.006549">
+								<SimplePredicate field="Income" operator="lessThan" value="31418.0"/>
+								<Node score="-0.63166237">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									<Node score="-2.0833511">
+										<SimplePredicate field="Age" operator="lessThan" value="26.0"/>
+									</Node>
+								</Node>
+							</Node>
+							<Node score="0.98388964">
+								<SimplePredicate field="Income" operator="lessThan" value="96942.0"/>
+								<Node score="0.18440996">
+									<SimplePredicate field="Age" operator="lessThan" value="49.0"/>
+								</Node>
+							</Node>
+							<Node score="1.1377418">
+								<SimplePredicate field="Age" operator="lessThan" value="59.0"/>
+							</Node>
+						</Node>
+						<Node score="0.83697146">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+							<Node score="0.7398086">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								<Node score="-0.033518262">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+									<Node score="-0.9923377">
+										<SimplePredicate field="Age" operator="lessThan" value="36.0"/>
+									</Node>
+								</Node>
+								<Node score="0.012891285">
+									<SimplePredicate field="Income" operator="lessThan" value="52239.0"/>
+								</Node>
+							</Node>
+							<Node score="0.66080546">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="-0.116943665">
+									<SimplePredicate field="Income" operator="lessThan" value="76936.0"/>
+								</Node>
+							</Node>
+							<Node score="0.6376603">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="0.92409176">
+							<SimplePredicate field="Age" operator="lessThan" value="59.0"/>
+							<Node score="0.7666509">
+								<SimplePredicate field="Income" operator="lessThan" value="45224.0"/>
+								<Node score="-0.16072282">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								</Node>
+							</Node>
+							<Node score="0.59764284">
+								<SimplePredicate field="Income" operator="lessThan" value="102258.0"/>
+							</Node>
+						</Node>
+						<Node score="1.567567">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							<Node score="1.0509251">
+								<SimplePredicate field="Age" operator="lessThan" value="68.0"/>
+							</Node>
+						</Node>
+						<Node score="1.0389599">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="7">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="FeedbackScore__High"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.6191335">
+						<True/>
+						<Node score="0.9566269">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.3580056">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="2.0839741">
+									<SimplePredicate field="Income" operator="lessThan" value="45224.0"/>
+									<Node score="-2.5492327">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+										<Node score="-2.0642676">
+											<SimplePredicate field="FeedbackScore__High" operator="lessThan" value="1.0"/>
+											<Node score="-3.0764341">
+												<SimplePredicate field="Income" operator="lessThan" value="39104.0"/>
+											</Node>
+										</Node>
+										<Node score="-0.8817331">
+											<SimplePredicate field="Income" operator="lessThan" value="37328.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.0984987">
+										<SimplePredicate field="Age" operator="lessThan" value="68.0"/>
+										<Node score="-1.902939">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.6169666">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									</Node>
+								</Node>
+								<Node score="0.11524945">
+									<SimplePredicate field="Age" operator="lessThan" value="53.0"/>
+									<Node score="-1.138239">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+										<Node score="-1.8704666">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.90044">
+										<SimplePredicate field="Income" operator="lessThan" value="105380.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.40055907">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+									<Node score="-1.0934744">
+										<SimplePredicate field="Age" operator="lessThan" value="63.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.4715719">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.3870752">
+								<SimplePredicate field="Income" operator="lessThan" value="43803.0"/>
+								<Node score="1.7023958">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="18.0"/>
+									<Node score="-0.7379758">
+										<SimplePredicate field="Age" operator="lessThan" value="64.0"/>
+										<Node score="-1.8440735">
+											<SimplePredicate field="Income" operator="lessThan" value="32128.0"/>
+										</Node>
+									</Node>
+									<Node score="0.22208725">
+										<SimplePredicate field="Income" operator="lessThan" value="40257.0"/>
+									</Node>
+								</Node>
+								<Node score="1.2524018">
+									<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+									<Node score="-0.28869554">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node score="2.00556">
+									<SimplePredicate field="Income" operator="lessThan" value="40991.0"/>
+								</Node>
+							</Node>
+							<Node score="1.706727">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+								<Node score="0.013105464">
+									<SimplePredicate field="Income" operator="lessThan" value="103397.0"/>
+									<Node score="-0.75259125">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+									</Node>
+								</Node>
+								<Node score="0.50369424">
+									<SimplePredicate field="Income" operator="lessThan" value="118479.0"/>
+								</Node>
+							</Node>
+							<Node score="0.3953734">
+								<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+								<Node score="-0.5631147">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5828446">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+							</Node>
+						</Node>
+						<Node score="0.46882284">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+							<Node score="1.4459939">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+								<Node score="-1.5655395">
+									<SimplePredicate field="Income" operator="lessThan" value="85961.0"/>
+									<Node score="-3.6330864">
+										<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+										<Node score="-2.1970036">
+											<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.456857">
+										<SimplePredicate field="Income" operator="lessThan" value="43144.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.5736437">
+									<SimplePredicate field="Age" operator="lessThan" value="21.0"/>
+									<Node score="-3.5378513">
+										<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.7962851">
+									<SimplePredicate field="Age" operator="lessThan" value="66.0"/>
+								</Node>
+							</Node>
+							<Node score="0.4806891">
+								<SimplePredicate field="Income" operator="lessThan" value="58973.0"/>
+								<Node score="-0.8225015">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+									<Node score="-1.7210225">
+										<SimplePredicate field="Age" operator="lessThan" value="50.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.54157627">
+									<SimplePredicate field="Age" operator="lessThan" value="52.0"/>
+								</Node>
+							</Node>
+							<Node score="0.68679214">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.63485074">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="19.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.6434895">
+								<SimplePredicate field="Age" operator="lessThan" value="24.0"/>
+							</Node>
+						</Node>
+						<Node score="0.7678693">
+							<SimplePredicate field="Income" operator="lessThan" value="43488.0"/>
+							<Node score="0.10510528">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="-0.66310376">
+									<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+									<Node score="-1.9995699">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.9108176">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="0.3211687">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+								<Node score="-0.58267456">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+								</Node>
+							</Node>
+							<Node score="0.2889252">
+								<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+							</Node>
+						</Node>
+						<Node score="0.6336123">
+							<SimplePredicate field="Age" operator="lessThan" value="51.0"/>
+							<Node score="0.30494452">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.33929756">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="0.36580664">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="0.7633744">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+							<Node score="0.45189157">
+								<SimplePredicate field="Age" operator="lessThan" value="64.0"/>
+							</Node>
+						</Node>
+						<Node score="0.8840206">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="8">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Country__Germany"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="FeedbackScore__High"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+					</MiningSchema>
+					<Node score="0.37936154">
+						<True/>
+						<Node score="0.22204742">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+							<Node score="-0.8806664">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-1.2666718">
+									<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+									<Node score="-0.531926">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+										<Node score="-2.7953231">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+											<Node score="1.5202361">
+												<SimplePredicate field="Income" operator="lessThan" value="30374.0"/>
+											</Node>
+										</Node>
+										<Node score="-1.8844548">
+											<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.10489444">
+										<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+										<Node score="-1.396204">
+											<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+										</Node>
+									</Node>
+									<Node score="-4.1115646">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.541183">
+									<SimplePredicate field="Income" operator="lessThan" value="91329.0"/>
+									<Node score="-0.5991388">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+										<Node score="-2.0299642">
+											<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.2772369">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.18495512">
+									<SimplePredicate field="Income" operator="lessThan" value="118847.0"/>
+									<Node score="-0.75256044">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+									</Node>
+								</Node>
+								<Node score="1.7442373">
+									<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.4876475">
+								<SimplePredicate field="Income" operator="lessThan" value="87746.0"/>
+								<Node score="0.1359782">
+									<SimplePredicate field="Age" operator="lessThan" value="64.0"/>
+									<Node score="-0.16096173">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+										<Node score="-1.3506867">
+											<SimplePredicate field="Income" operator="lessThan" value="76584.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.6458317">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.105183795">
+									<SimplePredicate field="Income" operator="lessThan" value="35903.0"/>
+									<Node score="-1.5515376">
+										<SimplePredicate field="FeedbackScore__High" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.7349044">
+									<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0.65396154">
+								<SimplePredicate field="Age" operator="lessThan" value="43.0"/>
+								<Node score="-0.096002944">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+									<Node score="-1.567684">
+										<SimplePredicate field="Age" operator="lessThan" value="27.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.3744574">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3374902">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+								<Node score="-0.40033224">
+									<SimplePredicate field="Income" operator="lessThan" value="113570.0"/>
+								</Node>
+							</Node>
+							<Node score="0.9108541">
+								<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="0.64015305">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							<Node score="0.5666433">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+								<Node score="-0.38625726">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									<Node score="-0.9730555">
+										<SimplePredicate field="Income" operator="lessThan" value="50563.0"/>
+										<Node score="-1.7760885">
+											<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.1266239">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+									</Node>
+								</Node>
+								<Node score="0.022512443">
+									<SimplePredicate field="Income" operator="lessThan" value="95889.0"/>
+									<Node score="-0.69810957">
+										<SimplePredicate field="Age" operator="lessThan" value="38.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.2987541">
+									<SimplePredicate field="Age" operator="lessThan" value="25.0"/>
+								</Node>
+							</Node>
+							<Node score="0.6510697">
+								<SimplePredicate field="Income" operator="lessThan" value="97317.0"/>
+								<Node score="0.1870054">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+									<Node score="-0.50592625">
+										<SimplePredicate field="Age" operator="lessThan" value="59.0"/>
+									</Node>
+								</Node>
+								<Node score="0.08444718">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="0.40854928">
+								<SimplePredicate field="Age" operator="lessThan" value="21.0"/>
+								<Node score="-1.1431102">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="0.16034271">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+							</Node>
+						</Node>
+						<Node score="0.4252414">
+							<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+							<Node score="0.5382587">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								<Node score="0.3409425">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									<Node score="-0.46928492">
+										<SimplePredicate field="Income" operator="lessThan" value="98355.0"/>
+									</Node>
+								</Node>
+								<Node score="0.25138977">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+								</Node>
+							</Node>
+							<Node score="0.46971866">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+								<Node score="-0.17144345">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+								</Node>
+							</Node>
+							<Node score="0.9861851">
+								<SimplePredicate field="Income" operator="lessThan" value="65405.0"/>
+							</Node>
+						</Node>
+						<Node score="0.43133563">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+							<Node score="0.55842817">
+								<SimplePredicate field="Income" operator="lessThan" value="100099.0"/>
+								<Node score="0.15333124">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="0.63464445">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							</Node>
+						</Node>
+						<Node score="0.6319493">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							<Node score="-0.4691812">
+								<SimplePredicate field="Income" operator="lessThan" value="32465.0"/>
+							</Node>
+						</Node>
+						<Node score="0.5430427">
+							<SimplePredicate field="Age" operator="lessThan" value="41.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="9">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Gender__Female"/>
+						<MiningField name="Country__France"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+					</MiningSchema>
+					<Node score="0.35003108">
+						<True/>
+						<Node score="0.9594869">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+							<Node score="-0.11139629">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.28969327">
+									<SimplePredicate field="Income" operator="lessThan" value="89483.0"/>
+									<Node score="-0.73136145">
+										<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+										<Node score="-2.934006">
+											<SimplePredicate field="Income" operator="lessThan" value="36990.0"/>
+											<Node score="0.26033404">
+												<SimplePredicate field="Income" operator="lessThan" value="31093.0"/>
+											</Node>
+										</Node>
+										<Node score="-1.36656">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.61244524">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+										<Node score="-1.124589">
+											<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.782083">
+										<SimplePredicate field="Age" operator="lessThan" value="51.0"/>
+									</Node>
+								</Node>
+								<Node score="0.67720467">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="0.24132349">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+										<Node score="-2.439681">
+											<SimplePredicate field="Income" operator="lessThan" value="113982.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.558734">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="19.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.263068">
+									<SimplePredicate field="Age" operator="lessThan" value="46.0"/>
+									<Node score="2.3536475">
+										<SimplePredicate field="Income" operator="lessThan" value="89870.0"/>
+									</Node>
+								</Node>
+								<Node score="0.78142065">
+									<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="2.5025754">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+								<Node score="0.15968777">
+									<SimplePredicate field="Income" operator="lessThan" value="109402.0"/>
+									<Node score="-0.4760079">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+										<Node score="-1.0012181">
+											<SimplePredicate field="Age" operator="lessThan" value="57.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.715793">
+										<SimplePredicate field="Income" operator="lessThan" value="39552.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.65878546">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+									<Node score="0.61402184">
+										<SimplePredicate field="Income" operator="lessThan" value="111840.0"/>
+									</Node>
+								</Node>
+								<Node score="0.3218831">
+									<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0.28366292">
+								<SimplePredicate field="Age" operator="lessThan" value="61.0"/>
+								<Node score="-0.16842496">
+									<SimplePredicate field="Income" operator="lessThan" value="48072.0"/>
+									<Node score="-0.8995666">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.19289237">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.6581097">
+								<SimplePredicate field="Income" operator="lessThan" value="35903.0"/>
+								<Node score="1.2548981">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+								</Node>
+							</Node>
+							<Node score="0.40158752">
+								<SimplePredicate field="Age" operator="lessThan" value="66.0"/>
+							</Node>
+						</Node>
+						<Node score="0.33724102">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.17992064">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="-1.6068326">
+									<SimplePredicate field="Age" operator="lessThan" value="25.0"/>
+									<Node score="0.06446955">
+										<SimplePredicate field="Country__France" operator="lessThan" value="1.0"/>
+										<Node score="-1.0773218">
+											<SimplePredicate field="Income" operator="lessThan" value="99380.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.7141094">
+										<SimplePredicate field="Income" operator="lessThan" value="58973.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.53811926">
+									<SimplePredicate field="Income" operator="lessThan" value="39552.0"/>
+									<Node score="-1.3153317">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.32301173">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.07887311">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+								<Node score="1.4106542">
+									<SimplePredicate field="Income" operator="lessThan" value="62914.0"/>
+									<Node score="-0.7678601">
+										<SimplePredicate field="Age" operator="lessThan" value="68.0"/>
+									</Node>
+								</Node>
+								<Node score="1.7448548">
+									<SimplePredicate field="Income" operator="lessThan" value="64703.0"/>
+								</Node>
+							</Node>
+							<Node score="0.34494457">
+								<SimplePredicate field="Income" operator="lessThan" value="39104.0"/>
+								<Node score="-0.73376477">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.06881269">
+								<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+							</Node>
+						</Node>
+						<Node score="0.6447977">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+							<Node score="0.5142061">
+								<SimplePredicate field="Age" operator="lessThan" value="45.0"/>
+								<Node score="0.22339956">
+									<SimplePredicate field="Income" operator="lessThan" value="82873.0"/>
+									<Node score="-0.41764867">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="0.11222049">
+									<SimplePredicate field="Income" operator="lessThan" value="110393.0"/>
+								</Node>
+							</Node>
+							<Node score="0.31353673">
+								<SimplePredicate field="Income" operator="lessThan" value="51624.0"/>
+								<Node score="-0.19996265">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="0.3423349">
+								<SimplePredicate field="Income" operator="lessThan" value="114702.0"/>
+							</Node>
+						</Node>
+						<Node score="1.1535298">
+							<SimplePredicate field="Age" operator="lessThan" value="25.0"/>
+							<Node score="0.3478726">
+								<SimplePredicate field="Income" operator="lessThan" value="34558.0"/>
+								<Node score="-1.8785709">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="0.19379278">
+								<SimplePredicate field="Income" operator="lessThan" value="116737.0"/>
+							</Node>
+						</Node>
+						<Node score="0.38200924">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="19.0"/>
+							<Node score="0.04187766">
+								<SimplePredicate field="Income" operator="lessThan" value="33477.0"/>
+							</Node>
+						</Node>
+						<Node score="0.6635182">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="10">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Country__Canada"/>
+						<MiningField name="Country__Germany"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.18634948">
+						<True/>
+						<Node score="1.4797661">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+							<Node score="0.98020536">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.35151958">
+									<SimplePredicate field="Income" operator="lessThan" value="114342.0"/>
+									<Node score="-0.7655201">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+										<Node score="2.8614779">
+											<SimplePredicate field="Age" operator="lessThan" value="57.0"/>
+											<Node score="-1.3156059">
+												<SimplePredicate field="Income" operator="lessThan" value="113216.0"/>
+											</Node>
+										</Node>
+										<Node score="1.3264642">
+											<SimplePredicate field="Age" operator="lessThan" value="58.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.587347">
+										<SimplePredicate field="Income" operator="lessThan" value="56158.0"/>
+										<Node score="-0.8108497">
+											<SimplePredicate field="Income" operator="lessThan" value="55511.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.7544023">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+									</Node>
+								</Node>
+								<Node score="1.5706427">
+									<SimplePredicate field="Age" operator="lessThan" value="27.0"/>
+									<Node score="-0.76795983">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+										<Node score="-2.3785727">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.1240345">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.019996263">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+									<Node score="-1.9524605">
+										<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.09249087">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								</Node>
+							</Node>
+							<Node score="0.86422676">
+								<SimplePredicate field="Age" operator="lessThan" value="31.0"/>
+								<Node score="-1.0919161">
+									<SimplePredicate field="Income" operator="lessThan" value="73862.0"/>
+									<Node score="0.8089165">
+										<SimplePredicate field="Income" operator="lessThan" value="59674.0"/>
+										<Node score="-0.8858506">
+											<SimplePredicate field="Income" operator="lessThan" value="52580.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.2283704">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+									</Node>
+								</Node>
+								<Node score="0.15606423">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+									<Node score="-2.9325206">
+										<SimplePredicate field="Age" operator="lessThan" value="27.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.123931944">
+									<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-2.2225602">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+								<Node score="0.2837896">
+									<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+									<Node score="-0.48450586">
+										<SimplePredicate field="Income" operator="lessThan" value="105052.0"/>
+									</Node>
+								</Node>
+								<Node score="0.49719563">
+									<SimplePredicate field="Income" operator="lessThan" value="114342.0"/>
+								</Node>
+							</Node>
+							<Node score="0.12275024">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								<Node score="-2.1778874">
+									<SimplePredicate field="Income" operator="lessThan" value="31093.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5137969">
+								<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+							</Node>
+						</Node>
+						<Node score="0.39891234">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+							<Node score="0.5731929">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+								<Node score="1.4510281">
+									<SimplePredicate field="Age" operator="lessThan" value="24.0"/>
+									<Node score="-1.3186944">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+										<Node score="-3.1096742">
+											<SimplePredicate field="Income" operator="lessThan" value="35903.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.0294596">
+										<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.03696346">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+									<Node score="-0.6135398">
+										<SimplePredicate field="Income" operator="lessThan" value="106757.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.69803154">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+								</Node>
+							</Node>
+							<Node score="0.025211979">
+								<SimplePredicate field="Age" operator="lessThan" value="52.0"/>
+								<Node score="-0.56533897">
+									<SimplePredicate field="Income" operator="lessThan" value="51624.0"/>
+									<Node score="-1.4086533">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.059898">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="0.91233224">
+								<SimplePredicate field="Income" operator="lessThan" value="98355.0"/>
+								<Node score="-0.03457038">
+									<SimplePredicate field="Country__Canada" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="1.6368719">
+								<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="0.2466802">
+							<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+							<Node score="0.4949756">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								<Node score="-0.37496608">
+									<SimplePredicate field="Income" operator="lessThan" value="65082.0"/>
+									<Node score="-1.0136162">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.13783042">
+									<SimplePredicate field="Income" operator="lessThan" value="112523.0"/>
+								</Node>
+							</Node>
+							<Node score="0.17368218">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+								<Node score="-0.9642151">
+									<SimplePredicate field="Income" operator="lessThan" value="35243.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5915266">
+								<SimplePredicate field="Income" operator="lessThan" value="73862.0"/>
+							</Node>
+						</Node>
+						<Node score="0.31649852">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+							<Node score="0.25275633">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.20476212">
+									<SimplePredicate field="Income" operator="lessThan" value="96589.0"/>
+								</Node>
+							</Node>
+							<Node score="0.10825118">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="0.28609782">
+							<SimplePredicate field="Income" operator="lessThan" value="49531.0"/>
+							<Node score="-0.26948857">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+							</Node>
+						</Node>
+						<Node score="0.37276912">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="11">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Gender__Female"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.029969543">
+						<True/>
+						<Node score="0.17910647">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.094289154">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+								<Node score="-0.26899225">
+									<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+									<Node score="1.7081593">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="20.0"/>
+										<Node score="-0.3225006">
+											<SimplePredicate field="Income" operator="lessThan" value="116057.0"/>
+											<Node score="-1.1421621">
+												<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+											</Node>
+										</Node>
+										<Node score="-0.15001495">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+										</Node>
+									</Node>
+									<Node score="2.3772945">
+										<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+										<Node score="0.47598985">
+											<SimplePredicate field="Income" operator="lessThan" value="63265.0"/>
+										</Node>
+									</Node>
+								</Node>
+								<Node score="-0.73401415">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+									<Node score="0.6793976">
+										<SimplePredicate field="Income" operator="lessThan" value="84597.0"/>
+										<Node score="-0.66958326">
+											<SimplePredicate field="Income" operator="lessThan" value="80065.0"/>
+										</Node>
+									</Node>
+									<Node score="-2.271188">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.068644874">
+									<SimplePredicate field="Income" operator="lessThan" value="82184.0"/>
+									<Node score="-0.49257156">
+										<SimplePredicate field="Age" operator="lessThan" value="55.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.40186766">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="0.35324222">
+								<SimplePredicate field="Age" operator="lessThan" value="60.0"/>
+								<Node score="0.86963856">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+									<Node score="-0.37711987">
+										<SimplePredicate field="Income" operator="lessThan" value="62205.0"/>
+										<Node score="-1.5691619">
+											<SimplePredicate field="Age" operator="lessThan" value="24.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.11402604">
+										<SimplePredicate field="Income" operator="lessThan" value="115723.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.023160938">
+									<SimplePredicate field="Income" operator="lessThan" value="44164.0"/>
+									<Node score="-1.2864543">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.11144573">
+									<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+								</Node>
+							</Node>
+							<Node score="0.4360733">
+								<SimplePredicate field="Income" operator="lessThan" value="32465.0"/>
+								<Node score="-2.6074417">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="1.5911511">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.048945">
+									<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+								</Node>
+							</Node>
+							<Node score="0.7645782">
+								<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+								<Node score="0.20826179">
+									<SimplePredicate field="Income" operator="lessThan" value="100453.0"/>
+								</Node>
+							</Node>
+							<Node score="0.84917957">
+								<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.005453734">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+							<Node score="0.6373124">
+								<SimplePredicate field="Income" operator="lessThan" value="105380.0"/>
+								<Node score="-0.6429512">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+									<Node score="-0.4400455">
+										<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+										<Node score="-0.9275814">
+											<SimplePredicate field="Income" operator="lessThan" value="70226.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.19543211">
+										<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.6607384">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+									<Node score="-2.1991627">
+										<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.08216426">
+									<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.59224486">
+								<SimplePredicate field="Age" operator="lessThan" value="53.0"/>
+								<Node score="0.7558235">
+									<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+									<Node score="-0.23366837">
+										<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1.2158328">
+									<SimplePredicate field="Income" operator="lessThan" value="108375.0"/>
+								</Node>
+							</Node>
+							<Node score="1.6792736">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+								<Node score="-1.9477284">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								</Node>
+							</Node>
+							<Node score="1.1525832">
+								<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="0.12910813">
+							<SimplePredicate field="Age" operator="lessThan" value="57.0"/>
+							<Node score="0.28755713">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+								<Node score="0.21773727">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+									<Node score="-0.20151234">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="0.07758637">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="0.58561486">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								<Node score="-0.36950353">
+									<SimplePredicate field="Income" operator="lessThan" value="39552.0"/>
+								</Node>
+							</Node>
+							<Node score="0.30857128">
+								<SimplePredicate field="Age" operator="lessThan" value="40.0"/>
+							</Node>
+						</Node>
+						<Node score="0.5105206">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							<Node score="0.24080646">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+								<Node score="-0.50044036">
+									<SimplePredicate field="Income" operator="lessThan" value="48510.0"/>
+								</Node>
+							</Node>
+							<Node score="0.26266885">
+								<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="0.18287121">
+							<SimplePredicate field="Income" operator="lessThan" value="55851.0"/>
+							<Node score="0.5149775">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+							</Node>
+						</Node>
+						<Node score="0.21923916">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="11.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="12">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Country__Canada"/>
+						<MiningField name="Country__France"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="FeedbackScore__Low"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.30231562">
+						<True/>
+						<Node score="0.3050071">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+							<Node score="0.23569904">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								<Node score="0.33832392">
+									<SimplePredicate field="Income" operator="lessThan" value="51256.0"/>
+									<Node score="0.55681306">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+										<Node score="-1.8789755">
+											<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+											<Node score="-0.73047125">
+												<SimplePredicate field="Income" operator="lessThan" value="48510.0"/>
+											</Node>
+										</Node>
+										<Node score="-0.59190595">
+											<SimplePredicate field="Income" operator="lessThan" value="48844.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.46355852">
+										<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+										<Node score="-1.8943046">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.24550767">
+										<SimplePredicate field="Income" operator="lessThan" value="43144.0"/>
+									</Node>
+								</Node>
+								<Node score="-2.508707">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+									<Node score="-0.47951788">
+										<SimplePredicate field="Income" operator="lessThan" value="111840.0"/>
+										<Node score="0.8468861">
+											<SimplePredicate field="Income" operator="lessThan" value="52580.0"/>
+										</Node>
+									</Node>
+									<Node score="0.202868">
+										<SimplePredicate field="Income" operator="lessThan" value="119608.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.8006796">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+									<Node score="-0.021313861">
+										<SimplePredicate field="FeedbackScore__Low" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.107765466">
+									<SimplePredicate field="Income" operator="lessThan" value="80793.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.46640024">
+								<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+								<Node score="-2.5033607">
+									<SimplePredicate field="Income" operator="lessThan" value="35243.0"/>
+									<Node score="-0.49441567">
+										<SimplePredicate field="Age" operator="lessThan" value="21.0"/>
+									</Node>
+								</Node>
+								<Node score="0.26023996">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+									<Node score="-1.175565">
+										<SimplePredicate field="Income" operator="lessThan" value="95889.0"/>
+									</Node>
+								</Node>
+								<Node score="0.33758026">
+									<SimplePredicate field="Country__France" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0.9924325">
+								<SimplePredicate field="Income" operator="lessThan" value="34229.0"/>
+								<Node score="-1.4674358">
+									<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+									<Node score="0.40469852">
+										<SimplePredicate field="Income" operator="lessThan" value="31418.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.3729546">
+									<SimplePredicate field="Income" operator="lessThan" value="30374.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.45406288">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								<Node score="0.8830364">
+									<SimplePredicate field="Income" operator="lessThan" value="46631.0"/>
+								</Node>
+							</Node>
+							<Node score="0.05670466">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+							</Node>
+						</Node>
+						<Node score="0.17731655">
+							<SimplePredicate field="Income" operator="lessThan" value="36680.0"/>
+							<Node score="0.072579004">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+								<Node score="0.18675113">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+									<Node score="-0.4511603">
+										<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+										<Node score="-1.2114114">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.41758335">
+										<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.9251474">
+									<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+									<Node score="0.23019865">
+										<SimplePredicate field="Income" operator="lessThan" value="35903.0"/>
+									</Node>
+								</Node>
+								<Node score="1.4943341">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="18.0"/>
+								</Node>
+							</Node>
+							<Node score="0.6726463">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								<Node score="-1.0055423">
+									<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+									<Node score="0.042131715">
+										<SimplePredicate field="Income" operator="lessThan" value="32794.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.23272201">
+									<SimplePredicate field="Income" operator="lessThan" value="34229.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5894365">
+								<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+								<Node score="-0.41888133">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="0.6994492">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							</Node>
+						</Node>
+						<Node score="0.2813124">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+							<Node score="0.3245376">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+								<Node score="-0.078734115">
+									<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+									<Node score="-0.56417525">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.23516282">
+									<SimplePredicate field="Country__Canada" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0.66667914">
+								<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+								<Node score="-2.396593">
+									<SimplePredicate field="Income" operator="lessThan" value="80461.0"/>
+								</Node>
+							</Node>
+							<Node score="1.3131125">
+								<SimplePredicate field="Age" operator="lessThan" value="31.0"/>
+							</Node>
+						</Node>
+						<Node score="0.21463452">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+							<Node score="0.15455726">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.26693925">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="19.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.26143745">
+								<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+							</Node>
+						</Node>
+						<Node score="0.07030754">
+							<SimplePredicate field="Age" operator="lessThan" value="21.0"/>
+							<Node score="-0.37064567">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+							</Node>
+						</Node>
+						<Node score="0.105263844">
+							<SimplePredicate field="Age" operator="lessThan" value="64.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="13">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+					</MiningSchema>
+					<Node score="-0.16451669">
+						<True/>
+						<Node score="0.063314974">
+							<SimplePredicate field="Income" operator="lessThan" value="105380.0"/>
+							<Node score="0.14107649">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="0.4923807">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+									<Node score="0.0319989">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+										<Node score="-0.23889203">
+											<SimplePredicate field="Age" operator="lessThan" value="56.0"/>
+											<Node score="-0.6635601">
+												<SimplePredicate field="Income" operator="lessThan" value="36990.0"/>
+											</Node>
+										</Node>
+										<Node score="-0.46815592">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+										</Node>
+									</Node>
+									<Node score="1.457413">
+										<SimplePredicate field="Income" operator="lessThan" value="50916.0"/>
+										<Node score="-0.17815791">
+											<SimplePredicate field="Age" operator="lessThan" value="69.0"/>
+										</Node>
+									</Node>
+									<Node score="0.15467119">
+										<SimplePredicate field="Income" operator="lessThan" value="98355.0"/>
+									</Node>
+								</Node>
+								<Node score="0.8767136">
+									<SimplePredicate field="Income" operator="lessThan" value="69937.0"/>
+									<Node score="0.3939395">
+										<SimplePredicate field="Income" operator="lessThan" value="46631.0"/>
+										<Node score="-0.3072972">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+										</Node>
+									</Node>
+									<Node score="0.3283361">
+										<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.0015315021">
+									<SimplePredicate field="Income" operator="lessThan" value="80065.0"/>
+									<Node score="-0.79970264">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									</Node>
+								</Node>
+								<Node score="0.6591966">
+									<SimplePredicate field="Age" operator="lessThan" value="27.0"/>
+								</Node>
+							</Node>
+							<Node score="0.2197555">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+								<Node score="0.03140878">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+									<Node score="0.26364952">
+										<SimplePredicate field="Age" operator="lessThan" value="29.0"/>
+										<Node score="-0.55751574">
+											<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.30552518">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="-3.1579745">
+									<SimplePredicate field="Income" operator="lessThan" value="31093.0"/>
+									<Node score="0.16919862">
+										<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.7437329">
+									<SimplePredicate field="Age" operator="lessThan" value="20.0"/>
+								</Node>
+							</Node>
+							<Node score="0.0655522">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+								<Node score="0.06378273">
+									<SimplePredicate field="Age" operator="lessThan" value="39.0"/>
+									<Node score="-0.7043824">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node score="0.44417924">
+									<SimplePredicate field="Income" operator="lessThan" value="39104.0"/>
+								</Node>
+							</Node>
+							<Node score="0.25487646">
+								<SimplePredicate field="Age" operator="lessThan" value="24.0"/>
+								<Node score="-0.23276561">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+								</Node>
+							</Node>
+							<Node score="0.18774514">
+								<SimplePredicate field="Income" operator="lessThan" value="77586.0"/>
+							</Node>
+						</Node>
+						<Node score="0.07894178">
+							<SimplePredicate field="Income" operator="lessThan" value="116057.0"/>
+							<Node score="-0.20659569">
+								<SimplePredicate field="Income" operator="lessThan" value="107038.0"/>
+								<Node score="0.1378277">
+									<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+									<Node score="-0.38239095">
+										<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+										<Node score="0.35018975">
+											<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0.8035885">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="0.108445905">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+									<Node score="-0.9755066">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node score="2.0895157">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+								</Node>
+							</Node>
+							<Node score="0.41040275">
+								<SimplePredicate field="Income" operator="lessThan" value="109735.0"/>
+								<Node score="0.22812468">
+									<SimplePredicate field="Age" operator="lessThan" value="20.0"/>
+									<Node score="-1.1512499">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.01227186">
+									<SimplePredicate field="Age" operator="lessThan" value="66.0"/>
+								</Node>
+							</Node>
+							<Node score="0.18298763">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								<Node score="-0.8340476">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+								</Node>
+							</Node>
+							<Node score="0.24871738">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+							</Node>
+						</Node>
+						<Node score="0.06378032">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+							<Node score="0.14144482">
+								<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+								<Node score="-0.16346538">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="18.0"/>
+									<Node score="0.6375008">
+										<SimplePredicate field="Income" operator="lessThan" value="116737.0"/>
+									</Node>
+								</Node>
+								<Node score="1.8869828">
+									<SimplePredicate field="Age" operator="lessThan" value="30.0"/>
+								</Node>
+							</Node>
+							<Node score="0.6490811">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								<Node score="0.111115046">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								</Node>
+							</Node>
+							<Node score="0.4446716">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.11220187">
+							<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+							<Node score="0.6826518">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.13460341">
+									<SimplePredicate field="Age" operator="lessThan" value="21.0"/>
+								</Node>
+							</Node>
+							<Node score="0.10973293">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="0.07941659">
+							<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+							<Node score="-0.47044656">
+								<SimplePredicate field="Age" operator="lessThan" value="37.0"/>
+							</Node>
+						</Node>
+						<Node score="-1.9127393">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="14">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Gender__Female"/>
+						<MiningField name="Country__Canada"/>
+						<MiningField name="Country__Germany"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.10844337">
+						<True/>
+						<Node score="-0.2982178">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+							<Node score="0.27282983">
+								<SimplePredicate field="Age" operator="lessThan" value="63.0"/>
+								<Node score="0.24729763">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+									<Node score="0.7646451">
+										<SimplePredicate field="Income" operator="lessThan" value="105380.0"/>
+										<Node score="-0.14989847">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="20.0"/>
+											<Node score="-0.4828961">
+												<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+											</Node>
+										</Node>
+										<Node score="0.069823936">
+											<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0.11990728">
+										<SimplePredicate field="Income" operator="lessThan" value="107405.0"/>
+										<Node score="0.9178043">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.0845746">
+										<SimplePredicate field="Income" operator="lessThan" value="114702.0"/>
+									</Node>
+								</Node>
+								<Node score="1.7736448">
+									<SimplePredicate field="Income" operator="lessThan" value="32128.0"/>
+									<Node score="-1.6164503">
+										<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+										<Node score="1.3528095">
+											<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.65142477">
+										<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.53985447">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									<Node score="0.14714688">
+										<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.35042733">
+									<SimplePredicate field="Age" operator="lessThan" value="20.0"/>
+								</Node>
+							</Node>
+							<Node score="0.16947499">
+								<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+								<Node score="0.91130865">
+									<SimplePredicate field="Income" operator="lessThan" value="118114.0"/>
+									<Node score="0.36195263">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+										<Node score="-0.011549015">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+										</Node>
+									</Node>
+									<Node score="0.11608812">
+										<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.23882525">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="4.0"/>
+									<Node score="-0.95725256">
+										<SimplePredicate field="Age" operator="lessThan" value="65.0"/>
+									</Node>
+								</Node>
+								<Node score="2.169605">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.1529307">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								<Node score="-0.6880898">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									<Node score="0.85628206">
+										<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.96568584">
+									<SimplePredicate field="Income" operator="lessThan" value="38003.0"/>
+								</Node>
+							</Node>
+							<Node score="0.17280032">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+								<Node score="-1.5617061">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="0.2910738">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="18.0"/>
+							</Node>
+						</Node>
+						<Node score="0.5057497">
+							<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+							<Node score="-0.8108208">
+								<SimplePredicate field="Income" operator="lessThan" value="104061.0"/>
+								<Node score="0.1887902">
+									<SimplePredicate field="Income" operator="lessThan" value="103397.0"/>
+									<Node score="-9.5374E-4">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+										<Node score="-0.37314007">
+											<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.44732162">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node score="-3.972372">
+									<SimplePredicate field="Age" operator="lessThan" value="46.0"/>
+								</Node>
+								<Node score="0.16866226">
+									<SimplePredicate field="Age" operator="lessThan" value="52.0"/>
+								</Node>
+							</Node>
+							<Node score="0.25212845">
+								<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+								<Node score="-0.9004">
+									<SimplePredicate field="Country__Canada" operator="lessThan" value="1.0"/>
+									<Node score="-2.2256243">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="0.91885453">
+									<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="2.5567918">
+								<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+								<Node score="0.83621615">
+									<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.006561686">
+								<SimplePredicate field="Age" operator="lessThan" value="56.0"/>
+							</Node>
+						</Node>
+						<Node score="0.060522873">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+							<Node score="-0.23629983">
+								<SimplePredicate field="Income" operator="lessThan" value="66442.0"/>
+								<Node score="1.5215794">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+									<Node score="-0.3631401">
+										<SimplePredicate field="Age" operator="lessThan" value="69.0"/>
+									</Node>
+								</Node>
+								<Node score="0.15268292">
+									<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-3.6237965E-4">
+								<SimplePredicate field="Age" operator="lessThan" value="20.0"/>
+								<Node score="-1.3665841">
+									<SimplePredicate field="Income" operator="lessThan" value="83963.0"/>
+								</Node>
+							</Node>
+							<Node score="0.31806445">
+								<SimplePredicate field="Income" operator="lessThan" value="74542.0"/>
+							</Node>
+						</Node>
+						<Node score="0.3300206">
+							<SimplePredicate field="Income" operator="lessThan" value="35544.0"/>
+							<Node score="-0.038282175">
+								<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+								<Node score="-1.6988009">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.051209178">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+							</Node>
+						</Node>
+						<Node score="0.035763726">
+							<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+							<Node score="0.14678551">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+							</Node>
+						</Node>
+						<Node score="0.2545542">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="15">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Gender__Female"/>
+						<MiningField name="Country__Germany"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="FeedbackScore__Low"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.08155022">
+						<True/>
+						<Node score="-0.6726279">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+							<Node score="-0.27054772">
+								<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+								<Node score="-1.9185561">
+									<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+									<Node score="-0.33751845">
+										<SimplePredicate field="Age" operator="lessThan" value="29.0"/>
+										<Node score="0.20277704">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+											<Node score="1.3864868">
+												<SimplePredicate field="Income" operator="lessThan" value="33122.0"/>
+											</Node>
+										</Node>
+										<Node score="1.0900129">
+											<SimplePredicate field="Age" operator="lessThan" value="19.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.5323708">
+										<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+										<Node score="-1.5632173">
+											<SimplePredicate field="Income" operator="lessThan" value="66442.0"/>
+										</Node>
+									</Node>
+									<Node score="0.27316436">
+										<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.6195742">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+									<Node score="-0.28802523">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+										<Node score="-1.3998585">
+											<SimplePredicate field="Income" operator="lessThan" value="107038.0"/>
+										</Node>
+									</Node>
+									<Node score="0.024940692">
+										<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-2.9534078">
+									<SimplePredicate field="Income" operator="lessThan" value="31760.0"/>
+								</Node>
+								<Node score="0.78393877">
+									<SimplePredicate field="FeedbackScore__Low" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.18191826">
+								<SimplePredicate field="Income" operator="lessThan" value="45545.0"/>
+								<Node score="0.8257879">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+									<Node score="-1.1584733">
+										<SimplePredicate field="Income" operator="lessThan" value="35544.0"/>
+										<Node score="0.4755275">
+											<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.97328466">
+										<SimplePredicate field="Age" operator="lessThan" value="67.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.17372827">
+									<SimplePredicate field="Income" operator="lessThan" value="40991.0"/>
+									<Node score="0.36879793">
+										<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.1211115">
+									<SimplePredicate field="Income" operator="lessThan" value="42406.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.7207745">
+								<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+								<Node score="-0.3711737">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="2.6661444">
+										<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+									</Node>
+								</Node>
+								<Node score="0.096592195">
+									<SimplePredicate field="Income" operator="lessThan" value="119608.0"/>
+								</Node>
+							</Node>
+							<Node score="0.44308415">
+								<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+								<Node score="-0.25584224">
+									<SimplePredicate field="Income" operator="lessThan" value="98355.0"/>
+								</Node>
+							</Node>
+							<Node score="1.2563965">
+								<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+							</Node>
+						</Node>
+						<Node score="0.3667906">
+							<SimplePredicate field="Income" operator="lessThan" value="34558.0"/>
+							<Node score="-0.047664117">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+								<Node score="-0.5033905">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+									<Node score="-0.0585055">
+										<SimplePredicate field="Age" operator="lessThan" value="44.0"/>
+										<Node score="-0.9179487">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="14.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.014939466">
+										<SimplePredicate field="Income" operator="lessThan" value="33477.0"/>
+									</Node>
+								</Node>
+								<Node score="-3.3207686">
+									<SimplePredicate field="Age" operator="lessThan" value="19.0"/>
+									<Node score="-0.5630379">
+										<SimplePredicate field="Income" operator="lessThan" value="31418.0"/>
+									</Node>
+								</Node>
+								<Node score="0.7048444">
+									<SimplePredicate field="Age" operator="lessThan" value="24.0"/>
+								</Node>
+							</Node>
+							<Node score="0.2620591">
+								<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+								<Node score="0.36448377">
+									<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+									<Node score="-0.7396745">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+									</Node>
+								</Node>
+								<Node score="2.2424347">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5878588">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+								<Node score="-2.9047348">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="1.6224622">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+							</Node>
+						</Node>
+						<Node score="0.36362562">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+							<Node score="-0.3954626">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								<Node score="-3.9256184">
+									<SimplePredicate field="Income" operator="lessThan" value="35544.0"/>
+									<Node score="0.0445148">
+										<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.55701995">
+									<SimplePredicate field="Income" operator="lessThan" value="40682.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.32966214">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="9.0"/>
+								<Node score="-0.056089066">
+									<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0.019199627">
+								<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="0.021787012">
+							<SimplePredicate field="Age" operator="lessThan" value="68.0"/>
+							<Node score="0.027978998">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								<Node score="-0.18832722">
+									<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+								</Node>
+							</Node>
+							<Node score="0.085303545">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="0.14629765">
+							<SimplePredicate field="Income" operator="lessThan" value="88438.0"/>
+							<Node score="0.543885">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.9173018">
+							<SimplePredicate field="Income" operator="lessThan" value="90555.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="16">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Country__France"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="FeedbackScore__High"/>
+						<MiningField name="FeedbackScore__Low"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="0.06148419">
+						<True/>
+						<Node score="-0.18955675">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="13.0"/>
+							<Node score="0.071357794">
+								<SimplePredicate field="Age" operator="lessThan" value="66.0"/>
+								<Node score="0.6765567">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+									<Node score="-0.08834675">
+										<SimplePredicate field="Income" operator="lessThan" value="112523.0"/>
+										<Node score="-0.13804217">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="10.0"/>
+											<Node score="-0.48286402">
+												<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+											</Node>
+										</Node>
+										<Node score="0.27844456">
+											<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0.25196868">
+										<SimplePredicate field="FeedbackScore__Low" operator="lessThan" value="1.0"/>
+										<Node score="-0.2642951">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="5.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.4504291">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.20130602">
+									<SimplePredicate field="Income" operator="lessThan" value="70597.0"/>
+									<Node score="0.08068245">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+										<Node score="-0.19215733">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+										</Node>
+									</Node>
+									<Node score="0.23393363">
+										<SimplePredicate field="Country__France" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.027735269">
+									<SimplePredicate field="Income" operator="lessThan" value="72839.0"/>
+									<Node score="0.81339943">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.23313595">
+									<SimplePredicate field="Income" operator="lessThan" value="73862.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.8369302">
+								<SimplePredicate field="Income" operator="lessThan" value="31418.0"/>
+								<Node score="-2.9954443">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+								</Node>
+								<Node score="-1.7400365">
+									<SimplePredicate field="FeedbackScore__High" operator="lessThan" value="1.0"/>
+									<Node score="0.2092105">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="0.4629467">
+									<SimplePredicate field="Income" operator="lessThan" value="30374.0"/>
+								</Node>
+							</Node>
+							<Node score="0.18619424">
+								<SimplePredicate field="Income" operator="lessThan" value="32794.0"/>
+								<Node score="1.4441903">
+									<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+									<Node score="-0.36992857">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="2.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.6562314">
+									<SimplePredicate field="Income" operator="lessThan" value="32128.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.19109826">
+								<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+								<Node score="0.2544684">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+								</Node>
+							</Node>
+							<Node score="0.47510162">
+								<SimplePredicate field="Age" operator="lessThan" value="67.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.030395126">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="20.0"/>
+							<Node score="-0.00134087">
+								<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+								<Node score="-1.3174564">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="0.24396706">
+										<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+										<Node score="-0.19378981">
+											<SimplePredicate field="Age" operator="lessThan" value="50.0"/>
+										</Node>
+									</Node>
+									<Node score="-0.2031313">
+										<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.09101243">
+									<SimplePredicate field="Income" operator="lessThan" value="36680.0"/>
+									<Node score="-0.27291518">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="0.0701588">
+									<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0.121194266">
+								<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+								<Node score="0.037182808">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="17.0"/>
+									<Node score="-0.53028595">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+									</Node>
+								</Node>
+								<Node score="0.76736486">
+									<SimplePredicate field="Age" operator="lessThan" value="22.0"/>
+								</Node>
+							</Node>
+							<Node score="0.17567348">
+								<SimplePredicate field="Income" operator="lessThan" value="115723.0"/>
+								<Node score="1.4659415">
+									<SimplePredicate field="Income" operator="lessThan" value="32128.0"/>
+								</Node>
+							</Node>
+							<Node score="1.5138472">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+							</Node>
+						</Node>
+						<Node score="0.07284873">
+							<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+							<Node score="0.0057188934">
+								<SimplePredicate field="Age" operator="lessThan" value="43.0"/>
+								<Node score="1.025415">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="7.0"/>
+									<Node score="0.34704155">
+										<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1.2809621">
+									<SimplePredicate field="Income" operator="lessThan" value="34229.0"/>
+								</Node>
+							</Node>
+							<Node score="0.16023496">
+								<SimplePredicate field="Age" operator="lessThan" value="67.0"/>
+								<Node score="-0.21211325">
+									<SimplePredicate field="FeedbackScore__High" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="2.4281437">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.10998803">
+							<SimplePredicate field="Age" operator="lessThan" value="19.0"/>
+							<Node score="3.8133478">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+								<Node score="0.16013661">
+									<SimplePredicate field="Income" operator="lessThan" value="37328.0"/>
+								</Node>
+							</Node>
+							<Node score="0.41939622">
+								<SimplePredicate field="Income" operator="lessThan" value="108735.0"/>
+							</Node>
+						</Node>
+						<Node score="0.43368074">
+							<SimplePredicate field="Income" operator="lessThan" value="30741.0"/>
+							<Node score="2.1236382">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.50185275">
+							<SimplePredicate field="Income" operator="lessThan" value="52943.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="17">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Gender__Female"/>
+						<MiningField name="Country__Canada"/>
+						<MiningField name="Country__Germany"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="Country__USA"/>
+						<MiningField name="FeedbackScore__High"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+						<MiningField name="LoyaltyLevel__Silver"/>
+					</MiningSchema>
+					<Node score="-0.021201849">
+						<True/>
+						<Node score="-0.0067766607">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="7.0"/>
+							<Node score="0.06342316">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+								<Node score="-0.93016744">
+									<SimplePredicate field="Income" operator="lessThan" value="111840.0"/>
+									<Node score="-0.22125646">
+										<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+										<Node score="-0.80704683">
+											<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+											<Node score="5.8584474E-4">
+												<SimplePredicate field="Income" operator="lessThan" value="61177.0"/>
+											</Node>
+										</Node>
+										<Node score="1.2350978">
+											<SimplePredicate field="Age" operator="lessThan" value="19.0"/>
+										</Node>
+									</Node>
+									<Node score="0.27179214">
+										<SimplePredicate field="Income" operator="lessThan" value="111082.0"/>
+										<Node score="-0.09232847">
+											<SimplePredicate field="Age" operator="lessThan" value="68.0"/>
+										</Node>
+									</Node>
+									<Node score="2.1660297">
+										<SimplePredicate field="Age" operator="lessThan" value="24.0"/>
+									</Node>
+								</Node>
+								<Node score="1.1357192">
+									<SimplePredicate field="Income" operator="lessThan" value="119608.0"/>
+									<Node score="0.40333787">
+										<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+										<Node score="-0.035870496">
+											<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+										</Node>
+									</Node>
+									<Node score="0.24161129">
+										<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.34615958">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="8.0"/>
+									<Node score="-2.677655">
+										<SimplePredicate field="Age" operator="lessThan" value="33.0"/>
+									</Node>
+								</Node>
+								<Node score="1.3840249">
+									<SimplePredicate field="ServiceQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.21255495">
+								<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+								<Node score="-0.028134203">
+									<SimplePredicate field="Age" operator="lessThan" value="38.0"/>
+									<Node score="-0.5074736">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+										<Node score="0.023062319">
+											<SimplePredicate field="FeedbackScore__High" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0.19040309">
+										<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.3201583">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="7.0"/>
+									<Node score="0.087461896">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="9.0"/>
+									</Node>
+								</Node>
+								<Node score="0.03707516">
+									<SimplePredicate field="Country__Canada" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-2.9693108">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+								<Node score="0.85642964">
+									<SimplePredicate field="Age" operator="lessThan" value="52.0"/>
+									<Node score="-0.37675267">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.25178018">
+									<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.5171716">
+								<SimplePredicate field="Income" operator="lessThan" value="43144.0"/>
+								<Node score="-0.10994829">
+									<SimplePredicate field="Income" operator="lessThan" value="42406.0"/>
+								</Node>
+							</Node>
+							<Node score="0.536585">
+								<SimplePredicate field="Income" operator="lessThan" value="49884.0"/>
+							</Node>
+						</Node>
+						<Node score="-2.7151034">
+							<SimplePredicate field="ServiceQuality" operator="lessThan" value="4.0"/>
+							<Node score="0.5849341">
+								<SimplePredicate field="Age" operator="lessThan" value="61.0"/>
+								<Node score="0.15525617">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+									<Node score="-0.62091047">
+										<SimplePredicate field="LoyaltyLevel__Silver" operator="lessThan" value="1.0"/>
+										<Node score="-0.19846867">
+											<SimplePredicate field="Income" operator="lessThan" value="101127.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.3940396">
+										<SimplePredicate field="Income" operator="lessThan" value="35243.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.06719828">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="15.0"/>
+									<Node score="-0.7848477">
+										<SimplePredicate field="Income" operator="lessThan" value="32465.0"/>
+									</Node>
+								</Node>
+								<Node score="0.017248733">
+									<SimplePredicate field="Income" operator="lessThan" value="111082.0"/>
+								</Node>
+							</Node>
+							<Node score="0.026994921">
+								<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+								<Node score="0.36555013">
+									<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+									<Node score="-0.28791124">
+										<SimplePredicate field="Income" operator="lessThan" value="73230.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.8492412">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+								</Node>
+							</Node>
+							<Node score="0.6291753">
+								<SimplePredicate field="Income" operator="lessThan" value="119608.0"/>
+								<Node score="0.2958159">
+									<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+						</Node>
+						<Node score="0.5485442">
+							<SimplePredicate field="Income" operator="lessThan" value="34558.0"/>
+							<Node score="0.6461936">
+								<SimplePredicate field="Age" operator="lessThan" value="21.0"/>
+								<Node score="-0.016942162">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="16.0"/>
+									<Node score="-2.4121623">
+										<SimplePredicate field="Income" operator="lessThan" value="33122.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.026139">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								</Node>
+							</Node>
+							<Node score="0.9304815">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								<Node score="-0.7859743">
+									<SimplePredicate field="Country__Germany" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-0.072176255">
+								<SimplePredicate field="Country__USA" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.33935782">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="8.0"/>
+							<Node score="0.34959304">
+								<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+								<Node score="-1.3178421">
+									<SimplePredicate field="Income" operator="lessThan" value="68461.0"/>
+								</Node>
+							</Node>
+							<Node score="0.21926795">
+								<SimplePredicate field="Age" operator="lessThan" value="67.0"/>
+							</Node>
+						</Node>
+						<Node score="0.07272834">
+							<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+							<Node score="-0.02666737">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="10.0"/>
+							</Node>
+						</Node>
+						<Node score="0.22502474">
+							<SimplePredicate field="Income" operator="lessThan" value="41704.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="18">
+				<True/>
+				<TreeModel functionName="regression" noTrueChildStrategy="returnLastPrediction" x-mathContext="float">
+					<MiningSchema>
+						<MiningField name="Age"/>
+						<MiningField name="Income"/>
+						<MiningField name="ProductQuality"/>
+						<MiningField name="ServiceQuality"/>
+						<MiningField name="PurchaseFrequency"/>
+						<MiningField name="Gender__Female"/>
+						<MiningField name="Country__Canada"/>
+						<MiningField name="Country__France"/>
+						<MiningField name="Country__UK"/>
+						<MiningField name="FeedbackScore__Low"/>
+						<MiningField name="FeedbackScore__Medium"/>
+						<MiningField name="LoyaltyLevel__Bronze"/>
+						<MiningField name="LoyaltyLevel__Gold"/>
+					</MiningSchema>
+					<Node score="0.029256202">
+						<True/>
+						<Node score="-0.019253628">
+							<SimplePredicate field="Income" operator="lessThan" value="49531.0"/>
+							<Node score="-0.057859086">
+								<SimplePredicate field="Country__France" operator="lessThan" value="1.0"/>
+								<Node score="0.18212324">
+									<SimplePredicate field="Income" operator="lessThan" value="47356.0"/>
+									<Node score="-0.5354328">
+										<SimplePredicate field="Income" operator="lessThan" value="43488.0"/>
+										<Node score="0.06068021">
+											<SimplePredicate field="LoyaltyLevel__Gold" operator="lessThan" value="1.0"/>
+											<Node score="-0.2623026">
+												<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+											</Node>
+										</Node>
+										<Node score="-0.050377354">
+											<SimplePredicate field="Income" operator="lessThan" value="40682.0"/>
+										</Node>
+									</Node>
+									<Node score="0.16194789">
+										<SimplePredicate field="FeedbackScore__Low" operator="lessThan" value="1.0"/>
+										<Node score="-0.46644926">
+											<SimplePredicate field="Age" operator="lessThan" value="25.0"/>
+										</Node>
+									</Node>
+									<Node score="0.74638176">
+										<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.0517614">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+									<Node score="0.1285026">
+										<SimplePredicate field="Age" operator="lessThan" value="68.0"/>
+										<Node score="-0.6317242">
+											<SimplePredicate field="Country__Canada" operator="lessThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node score="-4.9514904">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="0.047675833">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="9.0"/>
+									<Node score="-0.58253264">
+										<SimplePredicate field="ServiceQuality" operator="lessThan" value="8.0"/>
+									</Node>
+								</Node>
+								<Node score="0.49160397">
+									<SimplePredicate field="Income" operator="lessThan" value="48072.0"/>
+								</Node>
+							</Node>
+							<Node score="0.06285833">
+								<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+								<Node score="-0.52386504">
+									<SimplePredicate field="Age" operator="lessThan" value="42.0"/>
+									<Node score="0.39841035">
+										<SimplePredicate field="Age" operator="lessThan" value="32.0"/>
+										<Node score="-0.5799379">
+											<SimplePredicate field="Age" operator="lessThan" value="28.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.7549534">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.18565002">
+									<SimplePredicate field="Age" operator="lessThan" value="52.0"/>
+									<Node score="0.76057315">
+										<SimplePredicate field="Income" operator="lessThan" value="37669.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.93923354">
+									<SimplePredicate field="Age" operator="lessThan" value="62.0"/>
+								</Node>
+							</Node>
+							<Node score="-3.2887886">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="4.0"/>
+								<Node score="1.3132842">
+									<SimplePredicate field="Income" operator="lessThan" value="49195.0"/>
+									<Node score="-0.29483566">
+										<SimplePredicate field="Income" operator="lessThan" value="48072.0"/>
+									</Node>
+								</Node>
+								<Node score="0.6307297">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.3548585">
+								<SimplePredicate field="Age" operator="lessThan" value="20.0"/>
+								<Node score="0.7725003">
+									<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="3.0"/>
+								</Node>
+							</Node>
+							<Node score="0.26934394">
+								<SimplePredicate field="Gender__Female" operator="lessThan" value="1.0"/>
+							</Node>
+						</Node>
+						<Node score="0.018361956">
+							<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="5.0"/>
+							<Node score="0.12557995">
+								<SimplePredicate field="Income" operator="lessThan" value="90272.0"/>
+								<Node score="0.29171228">
+									<SimplePredicate field="Age" operator="lessThan" value="23.0"/>
+									<Node score="0.2864446">
+										<SimplePredicate field="LoyaltyLevel__Bronze" operator="lessThan" value="1.0"/>
+										<Node score="-0.463466">
+											<SimplePredicate field="ServiceQuality" operator="lessThan" value="6.0"/>
+										</Node>
+									</Node>
+									<Node score="-1.4444736">
+										<SimplePredicate field="FeedbackScore__Medium" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0.5618165">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="2.0"/>
+									<Node score="-0.46516332">
+										<SimplePredicate field="Country__France" operator="lessThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node score="-0.06948315">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="10.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5104691">
+								<SimplePredicate field="Income" operator="lessThan" value="91329.0"/>
+								<Node score="1.1566292">
+									<SimplePredicate field="Age" operator="lessThan" value="54.0"/>
+									<Node score="-0.23444077">
+										<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="2.0"/>
+									</Node>
+								</Node>
+								<Node score="-1.573772">
+									<SimplePredicate field="ProductQuality" operator="lessThan" value="5.0"/>
+								</Node>
+							</Node>
+							<Node score="0.2962332">
+								<SimplePredicate field="Country__UK" operator="lessThan" value="1.0"/>
+								<Node score="-0.06434409">
+									<SimplePredicate field="Age" operator="lessThan" value="66.0"/>
+								</Node>
+							</Node>
+							<Node score="0.5718759">
+								<SimplePredicate field="Age" operator="lessThan" value="34.0"/>
+							</Node>
+						</Node>
+						<Node score="0.45576313">
+							<SimplePredicate field="Income" operator="lessThan" value="50216.0"/>
+							<Node score="-0.51231104">
+								<SimplePredicate field="FeedbackScore__Low" operator="lessThan" value="1.0"/>
+								<Node score="0.27281183">
+									<SimplePredicate field="Income" operator="lessThan" value="49884.0"/>
+									<Node score="-0.7888435">
+										<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+									</Node>
+								</Node>
+								<Node score="0.6349907">
+									<SimplePredicate field="Age" operator="lessThan" value="60.0"/>
+								</Node>
+							</Node>
+							<Node score="2.0031734">
+								<SimplePredicate field="Age" operator="lessThan" value="51.0"/>
+								<Node score="0.4947945">
+									<SimplePredicate field="Age" operator="lessThan" value="35.0"/>
+								</Node>
+							</Node>
+							<Node score="-2.0779145">
+								<SimplePredicate field="Age" operator="lessThan" value="53.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.3264547">
+							<SimplePredicate field="Income" operator="lessThan" value="50563.0"/>
+							<Node score="1.8748885">
+								<SimplePredicate field="PurchaseFrequency" operator="lessThan" value="12.0"/>
+								<Node score="-0.073528655">
+									<SimplePredicate field="Country__France" operator="lessThan" value="1.0"/>
+								</Node>
+							</Node>
+							<Node score="-1.4899321">
+								<SimplePredicate field="ProductQuality" operator="lessThan" value="6.0"/>
+							</Node>
+						</Node>
+						<Node score="0.2396496">
+							<SimplePredicate field="Income" operator="lessThan" value="52580.0"/>
+							<Node score="-1.1229934">
+								<SimplePredicate field="Age" operator="lessThan" value="20.0"/>
+							</Node>
+						</Node>
+						<Node score="-0.15673676">
+							<SimplePredicate field="Income" operator="lessThan" value="54369.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+		</Segmentation>
+		<ModelVerification recordCount="10">
+			<VerificationFields>
+				<VerificationField field="Age" column="data:Age"/>
+				<VerificationField field="Income" column="data:Income"/>
+				<VerificationField field="ProductQuality" column="data:ProductQuality"/>
+				<VerificationField field="ServiceQuality" column="data:ServiceQuality"/>
+				<VerificationField field="PurchaseFrequency" column="data:PurchaseFrequency"/>
+				<VerificationField field="Gender__Female" column="data:Gender__Female"/>
+				<VerificationField field="Country__Canada" column="data:Country__Canada"/>
+				<VerificationField field="Country__France" column="data:Country__France"/>
+				<VerificationField field="Country__Germany" column="data:Country__Germany"/>
+				<VerificationField field="Country__UK" column="data:Country__UK"/>
+				<VerificationField field="Country__USA" column="data:Country__USA"/>
+				<VerificationField field="FeedbackScore__High" column="data:FeedbackScore__High"/>
+				<VerificationField field="FeedbackScore__Low" column="data:FeedbackScore__Low"/>
+				<VerificationField field="FeedbackScore__Medium" column="data:FeedbackScore__Medium"/>
+				<VerificationField field="LoyaltyLevel__Bronze" column="data:LoyaltyLevel__Bronze"/>
+				<VerificationField field="LoyaltyLevel__Gold" column="data:LoyaltyLevel__Gold"/>
+				<VerificationField field="LoyaltyLevel__Silver" column="data:LoyaltyLevel__Silver"/>
+				<VerificationField field="SatisfactionScore" column="data:SatisfactionScore" precision="1.0E-13" zeroThreshold="1.0E-13"/>
+			</VerificationFields>
+			<InlineTable>
+				<row>
+					<data:Age>59</data:Age>
+					<data:Income>88087</data:Income>
+					<data:ProductQuality>4</data:ProductQuality>
+					<data:ServiceQuality>10</data:ServiceQuality>
+					<data:PurchaseFrequency>15</data:PurchaseFrequency>
+					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>1</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>100.99105</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>66</data:Age>
+					<data:Income>81801</data:Income>
+					<data:ProductQuality>1</data:ProductQuality>
+					<data:ServiceQuality>2</data:ServiceQuality>
+					<data:PurchaseFrequency>5</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>1</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>61.28016</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>40</data:Age>
+					<data:Income>55266</data:Income>
+					<data:ProductQuality>3</data:ProductQuality>
+					<data:ServiceQuality>2</data:ServiceQuality>
+					<data:PurchaseFrequency>9</data:PurchaseFrequency>
+					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>1</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>56.263805</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>25</data:Age>
+					<data:Income>72374</data:Income>
+					<data:ProductQuality>1</data:ProductQuality>
+					<data:ServiceQuality>4</data:ServiceQuality>
+					<data:PurchaseFrequency>15</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>1</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>57.875095</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>58</data:Age>
+					<data:Income>67014</data:Income>
+					<data:ProductQuality>6</data:ProductQuality>
+					<data:ServiceQuality>9</data:ServiceQuality>
+					<data:PurchaseFrequency>6</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>1</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>98.46493</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>63</data:Age>
+					<data:Income>82363</data:Income>
+					<data:ProductQuality>4</data:ProductQuality>
+					<data:ServiceQuality>4</data:ServiceQuality>
+					<data:PurchaseFrequency>17</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>1</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>85.92688</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>66</data:Age>
+					<data:Income>38314</data:Income>
+					<data:ProductQuality>1</data:ProductQuality>
+					<data:ServiceQuality>8</data:ServiceQuality>
+					<data:PurchaseFrequency>16</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>1</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>84.4303</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>22</data:Age>
+					<data:Income>55879</data:Income>
+					<data:ProductQuality>9</data:ProductQuality>
+					<data:ServiceQuality>8</data:ServiceQuality>
+					<data:PurchaseFrequency>2</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>1</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>98.44627</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>27</data:Age>
+					<data:Income>73291</data:Income>
+					<data:ProductQuality>6</data:ProductQuality>
+					<data:ServiceQuality>5</data:ServiceQuality>
+					<data:PurchaseFrequency>4</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>1</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>86.51042</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>45</data:Age>
+					<data:Income>53499</data:Income>
+					<data:ProductQuality>6</data:ProductQuality>
+					<data:ServiceQuality>9</data:ServiceQuality>
+					<data:PurchaseFrequency>17</data:PurchaseFrequency>
+					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>1</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>1</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>1</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>98.53056</data:SatisfactionScore>
+				</row>
+			</InlineTable>
+		</ModelVerification>
+	</MiningModel>
+</PMML>
