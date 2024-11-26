@@ -30,7 +30,8 @@ public class CustomerFeedbackSourceFunction extends RichSourceFunction<CustomerF
             // make a random customer feedback object
             customerFeedbackSourceObject.setCustomerId("customer" + random.nextInt(5));
             customerFeedbackSourceObject.setPurchaseId("purchase" + random.nextInt(5));
-            // todo date of birth, timestamp
+            customerFeedbackSourceObject.setAge(18 + random.nextInt(50));
+            customerFeedbackSourceObject.setTimestamp(System.currentTimeMillis() - (random.nextInt(100) * 1000L));
             if (random.nextBoolean())
                 customerFeedbackSourceObject.setGender("Male");
             else

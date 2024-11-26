@@ -9,7 +9,7 @@ import lombok.*;
 public class CustomerFeedbackSourceObject {
     private String customerId;
     private String purchaseId;
-    private long dateOfBirth;
+    private int age;
     private long timestamp;
     private String gender;
     private String country;
