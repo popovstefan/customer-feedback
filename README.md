@@ -4,7 +4,7 @@ This is a code repository for a workshop titled Real-time streaming analytics an
 
 ## Workshop Details
 - **Date and Time:** November 28, 2024, 17:00 - 20:00
-- **Location:** UL-FRI, TBC
+- **Location:** UL-FRI, P04
 - **Instructors:** Stefan Popov & Domen Požrl
 
 ## Instructor Information
@@ -14,7 +14,7 @@ This is a code repository for a workshop titled Real-time streaming analytics an
 ## Event Description
 The workshop is primarily aimed at programmers (academics, professionals, students) who are familiar with the basics of machine learning and want to learn how to apply it to a real-time environment. 
 
-TBC
+You will have the chance to tryout a data science project in Java via working with Apache Flink. Flink is a data streaming framework used in many companies for real-time data transformations. It's open-source, and has strong development community behind it. In this workshop, we'll demonstrate, on a synhetic example, how we can use Flink to wrangle raw data sets, do feature engineering, and make predictions with Python-trained XGboost model, on-the-fly, in real-time, as the data arrives.
 
 ## Workshop Agenda
 - **17:00 - 17:35:** Introduction to the workshop, problem description, exploratory data analysis, data modeling
@@ -22,7 +22,7 @@ TBC
 - **18:20 - 18:40:** _Break_
 - **18:40 - 19:00:** Moving from batch scenario, to a real-time environment: streaming topology, Flink operators
 - **19:00 - 19:20:** Porting the Python-trained XGboost model to Java/Flink
-- **19:20 - 19:40:** Improving the solution, practical exercises
+- **19:20 - 19:40:** Tips for improving the solution, hands-on exercises
 - **19:40 - 20:00:** Q&A, sharing practical experiences 
 
 ## Prerequisites
