@@ -29,9 +29,9 @@ TBC
 - **Java dependencies:** see the `pom.xml` for details
 
 ## Resources & Literature
-- The data set we'll work with taken from [Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/customer-feedback-and-satisfaction/)
+- The data set we'll work with is taken from [Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/customer-feedback-and-satisfaction/)
 - All Flink materials are taken from [Stream Processing with Apache Flink: Fundamentals, Implementation, and Operation of Streaming Applications](https://www.amazon.com/Stream-Processing-Apache-Flink-Implementation/dp/149197429X), chapters/sections: 1, 2, 3a, 4, 5, 8c, 8d, 9a.i, 9a.e.
 
 # Acknowledgements
 
-We are immensely grateful to the Data Science Initiative for their support and for providing us with the opportunity to conduct the "Introduction to Survival Analysis" workshop. This workshop is part of a valuable series that plays a significant role in advancing our understanding and application of data science. Special thanks to the entire team at the Data Science Initiative for their efforts in organizing and promoting this series, thereby enabling a platform for knowledge sharing and professional growth. Their dedication to fostering a vibrant data science community is truly appreciated.
+We are immensely grateful to the Data Science Initiative for their support and for providing us with the opportunity to conduct the "Real-time streaming analytics and machine learning with Flink" workshop. This workshop is part of a valuable series that plays a significant role in advancing our understanding and application of data science. Special thanks to the entire team at the Data Science Initiative for their efforts in organizing and promoting this series, thereby enabling a platform for knowledge sharing and professional growth. Their dedication to fostering a vibrant data science community is truly appreciated.
