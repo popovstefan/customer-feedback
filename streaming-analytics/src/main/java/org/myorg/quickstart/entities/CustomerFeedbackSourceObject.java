@@ -3,11 +3,8 @@ package org.myorg.quickstart.entities;
 
 import lombok.*;
 
-@Getter
-@Setter
 @NoArgsConstructor
-@ToString
-@AllArgsConstructor
+@Data
 @EqualsAndHashCode(of = {"customerId", "purchaseId"})
 public class CustomerFeedbackSourceObject {
     private String customerId;

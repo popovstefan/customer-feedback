@@ -2,11 +2,8 @@ package org.myorg.quickstart.entities;
 
 import lombok.*;
 
-@ToString
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 @EqualsAndHashCode(of = {"purchaseId", "customerId", "productId"})
 public class PurchaseSourceObject {
     private String purchaseId;

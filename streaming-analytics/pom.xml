@@ -55,6 +55,14 @@ under the License.
 
 		<!-- My custom dependencies -->
 
+		<!-- https://mvnrepository.com/artifact/org.jpmml/pmml-evaluator -->
+		<dependency>
+			<groupId>org.jpmml</groupId>
+			<artifactId>pmml-evaluator-metro</artifactId>
+			<version>1.6.7</version>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>

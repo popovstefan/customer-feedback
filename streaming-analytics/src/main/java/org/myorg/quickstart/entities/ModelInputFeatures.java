@@ -1,8 +1,10 @@
 package org.myorg.quickstart.entities;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -25,4 +27,31 @@ public class ModelInputFeatures {
     private int countryGermany;
     private int countryUK;
     private int countryUSA;
+
+    public Map<String, Double> getFeatures() {
+        Map<String, Double> result = new HashMap<>();
+        result.put("ProductQuality", productQuality);
+        result.put("ServiceQuality", serviceQuality);
+        result.put("Income", income);
+        result.put("Age", (double) age);
+        result.put("PurchaseFrequency", (double) purchaseFrequency);
+
+        result.put("Gender_Male", (double) genderMale);
+        result.put("Gender_Female", (double) genderFemale);
+
+        result.put("LoyaltyLevel_Bronze", (double) loyaltyLevelBronze);
+        result.put("LoyaltyLevel_Silver", (double) loyaltyLevelSilver);
+        result.put("LoyaltyLevel_Gold", (double) loyaltyLevelGold);
+
+        result.put("FeedbackScore_Low", (double) feedbackScoreLow);
+        result.put("FeedbackScore_Medium", (double) feedbackScoreMedium);
+        result.put("FeedbackScore_High", (double) feedbackScoreHigh);
+
+        result.put("Country_Canada", (double) countryCanada);
+        result.put("Country_France", (double) countryFrance);
+        result.put("Country_Germany", (double) countryGermany);
+        result.put("Country_UK", (double) countryUK);
+        result.put("Country_USA", (double) countryUSA);
+        return result;
+    }
 }

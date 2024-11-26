@@ -1,10 +1,9 @@
-package org.myorg.quickstart.sources;
+package org.myorg.quickstart.operators.sources;
 
 import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 import org.myorg.quickstart.entities.CustomerFeedbackSourceObject;
 
-import java.time.Duration;
 import java.util.*;
 
 public class CustomerFeedbackSourceFunction extends RichSourceFunction<CustomerFeedbackSourceObject> {

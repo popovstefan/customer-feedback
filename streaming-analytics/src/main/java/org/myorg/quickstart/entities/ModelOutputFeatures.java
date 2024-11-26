@@ -1,8 +1,7 @@
 package org.myorg.quickstart.entities;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor

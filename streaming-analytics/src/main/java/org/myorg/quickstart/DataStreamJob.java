@@ -21,12 +21,13 @@ package org.myorg.quickstart;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.myorg.quickstart.connectors.ConnectFeedbacksAndPurchases;
+import org.myorg.quickstart.operators.connectors.ConnectFeedbacksAndPurchases;
 import org.myorg.quickstart.entities.CustomerFeedbackSourceObject;
 import org.myorg.quickstart.entities.PurchaseSourceObject;
 import org.myorg.quickstart.entities.CustomerPurchaseHistory;
-import org.myorg.quickstart.sources.CustomerFeedbackSourceFunction;
-import org.myorg.quickstart.sources.PurchaseSourceFunction;
+import org.myorg.quickstart.operators.processors.PredictSatisfactionScores;
+import org.myorg.quickstart.operators.sources.CustomerFeedbackSourceFunction;
+import org.myorg.quickstart.operators.sources.PurchaseSourceFunction;
 
 /**
  * Skeleton for a Flink DataStream Job.
@@ -63,9 +64,13 @@ public class DataStreamJob {
                 .name(ConnectFeedbacksAndPurchases.class.getName())
                 .uid(ConnectFeedbacksAndPurchases.class.getName());
 
-        // todo make predictions on the customers' purchase histories
+        // make predictions on the customers' purchase histories
+        DataStream<CustomerPurchaseHistory> satisfactionScores = customerPurchaseHistoryDataStream
+                .process(new PredictSatisfactionScores())
+                .name(PredictSatisfactionScores.class.getName())
+                .uid(PredictSatisfactionScores.class.getName());
 
-        customerPurchaseHistoryDataStream.print();
+        satisfactionScores.print();
 
         // Execute program, beginning computation.
         env.execute("Customer Satisfaction Score Prediction");

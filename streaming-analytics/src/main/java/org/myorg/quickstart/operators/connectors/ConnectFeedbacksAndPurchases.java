@@ -1,4 +1,4 @@
-package org.myorg.quickstart.connectors;
+package org.myorg.quickstart.operators.connectors;
 
 import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.api.common.state.*;

@@ -1,11 +1,9 @@
-package org.myorg.quickstart.sources;
+package org.myorg.quickstart.operators.sources;
 
 import org.apache.flink.api.common.functions.OpenContext;
-import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 import org.myorg.quickstart.entities.PurchaseSourceObject;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
