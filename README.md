@@ -8,8 +8,8 @@ This is a code repository for a workshop titled Real-time streaming analytics an
 - **Instructors:** Stefan Popov & Domen Požrl
 
 ## Instructor Information
-- **Stefan Popov:** Data Scientist at Sportradar, Master's degree in Information and Communication Technologies. [LinkedIn Profile](https://www.linkedin.com/in/greta-gasparac/)
-- **Domen Požrl:** Data Scientist at Sportradar, Master's degree in Computer Science. [LinkedIn Profile](https://www.linkedin.com/in/mspendl/)
+- **Stefan Popov:** Data Scientist at Sportradar, Master's degree in Information and Communication Technologies. [LinkedIn Profile](https://www.linkedin.com/in/popovstefan/)
+- **Domen Požrl:** Data Scientist at Sportradar, Master's degree in Computer Science. [LinkedIn Profile](https://www.linkedin.com/in/domen-po%C5%BErl-665692326/)
 
 ## Event Description
 The workshop is primarily aimed at programmers (academics, professionals, students) who are familiar with the basics of machine learning and want to learn how to apply it to a real-time environment. 
