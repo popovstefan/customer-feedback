@@ -2,6 +2,7 @@
 
 This is a code repository for a workshop titled Real-time streaming analytics and machine learning with Flink in a series of workshops held by the DataScience@UL-FRI Initiative.
 
+
 ## Workshop Details
 - **Date and Time:** November 28, 2024, 17:00 - 20:00
 - **Location:** UL-FRI, P04
