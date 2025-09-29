@@ -48,6 +48,22 @@ You will have the chance to tryout a data science project in Java via working wi
 - **Python Packages:** `pandas==1.5.3`, `seaborn==0.12.2`, `numpy==1.23.5`, `sklearn==1.2.1`, `matplotlib==3.7.0`, `shap=0.46.0`, `xgboost==2.1.2`, `sklearn2pmml==0.111.1`
 - **Java dependencies:** see the `pom.xml` for details
 
+## Docker Support
+
+This repository includes Docker support for running the Flink application in a containerized environment. This makes it easy to share and deploy the application without worrying about dependencies.
+
+### Quick Start with Docker
+
+```bash
+# Build the Docker image
+docker build -t customer-feedback-flink .
+
+# Run the application in a container
+docker run customer-feedback-flink
+```
+
+For detailed instructions on building, running, and publishing the Docker image, see [DOCKER_README.md](DOCKER_README.md).
+
 ## Resources & Literature
 - The data set we'll work with is taken from [Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/customer-feedback-and-satisfaction/)
 - All Flink materials are taken from [Stream Processing with Apache Flink: Fundamentals, Implementation, and Operation of Streaming Applications](https://www.amazon.com/Stream-Processing-Apache-Flink-Implementation/dp/149197429X), chapters/sections: 1, 2, 3a, 4, 5, 8c, 8d, 9a.i, 9a.e.
