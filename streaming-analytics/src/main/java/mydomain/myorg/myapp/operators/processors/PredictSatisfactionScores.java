@@ -1,4 +1,4 @@
-package org.myorg.quickstart.operators.processors;
+package mydomain.myorg.myapp.operators.processors;
 
 import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
@@ -6,8 +6,8 @@ import org.apache.flink.util.Collector;
 import org.jpmml.evaluator.Evaluator;
 import org.jpmml.evaluator.EvaluatorUtil;
 import org.jpmml.evaluator.LoadingModelEvaluatorBuilder;
-import org.myorg.quickstart.entities.CustomerPurchaseHistory;
-import org.myorg.quickstart.entities.ModelOutputFeatures;
+import mydomain.myorg.myapp.entities.CustomerPurchaseHistory;
+import mydomain.myorg.myapp.entities.ModelOutputFeatures;
 
 import java.io.File;
 import java.util.Map;

@@ -16,18 +16,18 @@
  * limitations under the License.
  */
 
-package org.myorg.quickstart;
+package mydomain.myorg.myapp;
 
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.myorg.quickstart.operators.connectors.ConnectFeedbacksAndPurchases;
-import org.myorg.quickstart.entities.CustomerFeedbackSourceObject;
-import org.myorg.quickstart.entities.PurchaseSourceObject;
-import org.myorg.quickstart.entities.CustomerPurchaseHistory;
-import org.myorg.quickstart.operators.processors.PredictSatisfactionScores;
-import org.myorg.quickstart.operators.sources.CustomerFeedbackSourceFunction;
-import org.myorg.quickstart.operators.sources.PurchaseSourceFunction;
+import mydomain.myorg.myapp.operators.connectors.ConnectFeedbacksAndPurchases;
+import mydomain.myorg.myapp.entities.CustomerFeedbackSourceObject;
+import mydomain.myorg.myapp.entities.PurchaseSourceObject;
+import mydomain.myorg.myapp.entities.CustomerPurchaseHistory;
+import mydomain.myorg.myapp.operators.processors.PredictSatisfactionScores;
+import mydomain.myorg.myapp.operators.sources.CustomerFeedbackSourceFunction;
+import mydomain.myorg.myapp.operators.sources.PurchaseSourceFunction;
 
 /**
  * Skeleton for a Flink DataStream Job.

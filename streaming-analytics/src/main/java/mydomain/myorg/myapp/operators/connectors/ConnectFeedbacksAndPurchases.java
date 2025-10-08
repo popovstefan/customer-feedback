@@ -1,5 +1,6 @@
-package org.myorg.quickstart.operators.connectors;
+package mydomain.myorg.myapp.operators.connectors;
 
+import mydomain.myorg.myapp.entities.*;
 import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.api.common.state.MapState;
 import org.apache.flink.api.common.state.MapStateDescriptor;
@@ -7,7 +8,6 @@ import org.apache.flink.api.common.state.StateTtlConfig;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.streaming.api.functions.co.KeyedCoProcessFunction;
 import org.apache.flink.util.Collector;
-import org.myorg.quickstart.entities.*;
 
 import java.time.Duration;
 import java.util.Iterator;

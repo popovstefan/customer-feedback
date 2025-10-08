@@ -1,4 +1,4 @@
-package org.myorg.quickstart.entities;
+package mydomain.myorg.myapp.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
