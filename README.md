@@ -3,8 +3,8 @@
 This is a code repository for a workshop titled Real-time streaming analytics and machine learning with Flink in a series of workshops held by the DataScience@UL-FRI Initiative.
 
 ## Workshop Details
-- **Date and Time:** November 28, 2024, 17:00 - 20:00
-- **Location:** UL-FRI, P04
+- **Date and Time:** October 22, 2025, 17:00 - 20:00
+- **Location:** UL-FRI, TBD
 - **Instructors:** Stefan Popov & Domen Požrl
 
 ## Instructor Information
@@ -17,11 +17,12 @@ The workshop is primarily aimed at programmers (academics, professionals, studen
 You will have the chance to tryout a data science project in Java via working with Apache Flink. Flink is a data streaming framework used in many companies for real-time data transformations. It's open-source, and has strong development community behind it. In this workshop, we'll demonstrate, on a synhetic example, how we can use Flink to wrangle raw data sets, do feature engineering, and make predictions with Python-trained XGboost model, on-the-fly, in real-time, as the data arrives.
 
 ## Workshop Agenda
-- **17:00 - 17:35:** Introduction to the workshop, problem description, exploratory data analysis, data modeling
-- **17:35 - 18:20:** Introduction to Flink: dataflow programming, streaming API
+- **17:00 - 17:30:** Introduction to the workshop, problem description, exploratory data analysis, data modeling
+- **17:30 - 18:05:** Introduction to Flink: dataflow programming, streaming API
+- **18:05 - 18:20:** Moving from batch scenario, to a real-time environment: streaming topology, Flink operators
 - **18:20 - 18:40:** _Break_
-- **18:40 - 19:00:** Moving from batch scenario, to a real-time environment: streaming topology, Flink operators
-- **19:00 - 19:20:** Porting the Python-trained XGboost model to Java/Flink
+- **18:40 - 19:00:** Porting the Python-trained XGboost model to Java/Flink
+- **19:00 - 19:20:** Introduction to Docker, building and running the application image
 - **19:20 - 19:40:** Tips for improving the solution, hands-on exercises
 - **19:40 - 20:00:** Q&A, sharing practical experiences 
 
