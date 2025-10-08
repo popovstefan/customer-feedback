@@ -24,16 +24,17 @@ public class PredictSatisfactionScores extends ProcessFunction<CustomerPurchaseH
 
         // Evaluating the model
         Map<String, Double> arguments = customerPurchaseHistory.getModelInputFeatures().getFeatures();
-        Map<String, ?> results = evaluator.evaluate(arguments);
+        // Map<String, ?> is cast to Map<String, Float> for easier type manipulation
+        Map<String, Float> results = (Map<String, Float>) evaluator.evaluate(arguments);
 
         // Decoupling results from the JPMML-Evaluator runtime environment
-        results = EvaluatorUtil.decodeAll(results);
+        results = (Map<String, Float>) EvaluatorUtil.decodeAll(results);
 
 
 //        System.out.printf("Results: %s%n", results);
         float satisfactionScorePrediction = -1;
         if (results.containsKey("SatisfactionScore"))
-            satisfactionScorePrediction = (float) results.get("SatisfactionScore");
+            satisfactionScorePrediction = results.get("SatisfactionScore");
 
         ModelOutputFeatures modelOutputFeatures = new ModelOutputFeatures();
         modelOutputFeatures.setSatisfactionScorePrediction(satisfactionScorePrediction);

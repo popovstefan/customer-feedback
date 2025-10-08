@@ -21,7 +21,7 @@ FROM openjdk:8-slim
 WORKDIR /app
 
 # Copy the built jar from the build stage
-COPY --from=build /app/streaming-analytics/target/flink-streaming-analytics-0.1.jar /app/flink-streaming-analytics.jar
+COPY --from=build /app/streaming-analytics/target/streaming-analytics-0.1.jar /app/streaming-analytics.jar
 
 # Copy the model file
 COPY --from=build /app/model /app/model
@@ -32,7 +32,7 @@ RUN echo '#!/bin/bash\n\
 mkdir -p ../machine-learning-model\n\
 ln -sf /app/model/myxgboostregressor.pmml ../machine-learning-model/myxgboostregressor.pmml\n\
 # Run the application\n\
-java -jar /app/flink-streaming-analytics.jar\n\
+java -jar /app/streaming-analytics.jar\n\
 ' > /app/run.sh && chmod +x /app/run.sh
 
 # Expose Flink web UI port (optional)
