@@ -55,7 +55,7 @@ This repository includes Docker support for running the Flink application in a c
 
 ### Quick Start with Docker Desktop
 
-Please download the application from the [official site](https://www.docker.com/products/docker-desktop/).
+Please download the Docker Desktop application from the [official site](https://www.docker.com/products/docker-desktop/).
 
 ```bash
 # Build the Docker image
@@ -66,6 +66,8 @@ docker run customer-feedback-flink
 ```
 
 For detailed instructions on building, running, and publishing the Docker image, see [DOCKER_README.md](DOCKER_README.md).
+
+Our _latest_ image is published on the Docker Hub, you can download it and run it from [here](https://hub.docker.com/repository/docker/steffaanpopov/customer-feedback-flink/general) (requires Docker account).
 
 ## Resources & Literature
 - The data set we'll work with is taken from [Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/customer-feedback-and-satisfaction/)
