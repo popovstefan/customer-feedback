@@ -4,7 +4,7 @@ This is a code repository for a workshop titled Real-time streaming analytics an
 
 ## Workshop Details
 - **Date and Time:** October 22, 2025, 17:00 - 20:00
-- **Location:** UL-FRI, TBD
+- **Location:** UL-FRI, Lecture Room 04
 - **Instructors:** Stefan Popov & Domen Požrl
 
 ## Instructor Information
