@@ -2,7 +2,7 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
 		<Application name="SkLearn2PMML package" version="0.111.1"/>
-		<Timestamp>2024-11-24T20:55:49Z</Timestamp>
+		<Timestamp>2025-10-22T12:51:11Z</Timestamp>
 	</Header>
 	<MiningBuildTask>
 		<Extension name="repr">PMMLPipeline(steps=[('regressor', XGBRegressor(base_score=85.25441651763941, booster=None, callbacks=None,
@@ -3835,12 +3835,112 @@
 			</VerificationFields>
 			<InlineTable>
 				<row>
-					<data:Age>59</data:Age>
-					<data:Income>88087</data:Income>
-					<data:ProductQuality>4</data:ProductQuality>
-					<data:ServiceQuality>10</data:ServiceQuality>
-					<data:PurchaseFrequency>15</data:PurchaseFrequency>
+					<data:Age>32</data:Age>
+					<data:Income>115229</data:Income>
+					<data:ProductQuality>3</data:ProductQuality>
+					<data:ServiceQuality>1</data:ServiceQuality>
+					<data:PurchaseFrequency>13</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>1</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>67.175835</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>61</data:Age>
+					<data:Income>40871</data:Income>
+					<data:ProductQuality>8</data:ProductQuality>
+					<data:ServiceQuality>5</data:ServiceQuality>
+					<data:PurchaseFrequency>13</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>1</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>1</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>93.597374</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>37</data:Age>
+					<data:Income>53416</data:Income>
+					<data:ProductQuality>7</data:ProductQuality>
+					<data:ServiceQuality>9</data:ServiceQuality>
+					<data:PurchaseFrequency>1</data:PurchaseFrequency>
 					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>1</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>98.440834</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>33</data:Age>
+					<data:Income>88719</data:Income>
+					<data:ProductQuality>6</data:ProductQuality>
+					<data:ServiceQuality>10</data:ServiceQuality>
+					<data:PurchaseFrequency>1</data:PurchaseFrequency>
+					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>1</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>98.16698</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>26</data:Age>
+					<data:Income>96131</data:Income>
+					<data:ProductQuality>1</data:ProductQuality>
+					<data:ServiceQuality>2</data:ServiceQuality>
+					<data:PurchaseFrequency>5</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>1</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>0</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>1</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>51.66344</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>63</data:Age>
+					<data:Income>60701</data:Income>
+					<data:ProductQuality>6</data:ProductQuality>
+					<data:ServiceQuality>1</data:ServiceQuality>
+					<data:PurchaseFrequency>12</data:PurchaseFrequency>
+					<data:Gender__Female>0</data:Gender__Female>
 					<data:Country__Canada>1</data:Country__Canada>
 					<data:Country__France>0</data:Country__France>
 					<data:Country__Germany>0</data:Country__Germany>
@@ -3852,133 +3952,13 @@
 					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
 					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
 					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>100.99105</data:SatisfactionScore>
+					<data:SatisfactionScore>76.860596</data:SatisfactionScore>
 				</row>
 				<row>
-					<data:Age>66</data:Age>
-					<data:Income>81801</data:Income>
-					<data:ProductQuality>1</data:ProductQuality>
-					<data:ServiceQuality>2</data:ServiceQuality>
-					<data:PurchaseFrequency>5</data:PurchaseFrequency>
-					<data:Gender__Female>0</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>0</data:Country__France>
-					<data:Country__Germany>0</data:Country__Germany>
-					<data:Country__UK>1</data:Country__UK>
-					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>0</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>61.28016</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>40</data:Age>
-					<data:Income>55266</data:Income>
-					<data:ProductQuality>3</data:ProductQuality>
-					<data:ServiceQuality>2</data:ServiceQuality>
-					<data:PurchaseFrequency>9</data:PurchaseFrequency>
-					<data:Gender__Female>1</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>0</data:Country__France>
-					<data:Country__Germany>0</data:Country__Germany>
-					<data:Country__UK>0</data:Country__UK>
-					<data:Country__USA>1</data:Country__USA>
-					<data:FeedbackScore__High>0</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>56.263805</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>25</data:Age>
-					<data:Income>72374</data:Income>
-					<data:ProductQuality>1</data:ProductQuality>
-					<data:ServiceQuality>4</data:ServiceQuality>
-					<data:PurchaseFrequency>15</data:PurchaseFrequency>
-					<data:Gender__Female>0</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>1</data:Country__France>
-					<data:Country__Germany>0</data:Country__Germany>
-					<data:Country__UK>0</data:Country__UK>
-					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>1</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>57.875095</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>58</data:Age>
-					<data:Income>67014</data:Income>
-					<data:ProductQuality>6</data:ProductQuality>
-					<data:ServiceQuality>9</data:ServiceQuality>
-					<data:PurchaseFrequency>6</data:PurchaseFrequency>
-					<data:Gender__Female>0</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>0</data:Country__France>
-					<data:Country__Germany>0</data:Country__Germany>
-					<data:Country__UK>1</data:Country__UK>
-					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>1</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>98.46493</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>63</data:Age>
-					<data:Income>82363</data:Income>
+					<data:Age>23</data:Age>
+					<data:Income>93561</data:Income>
 					<data:ProductQuality>4</data:ProductQuality>
-					<data:ServiceQuality>4</data:ServiceQuality>
-					<data:PurchaseFrequency>17</data:PurchaseFrequency>
-					<data:Gender__Female>0</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>0</data:Country__France>
-					<data:Country__Germany>1</data:Country__Germany>
-					<data:Country__UK>0</data:Country__UK>
-					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>1</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>85.92688</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>66</data:Age>
-					<data:Income>38314</data:Income>
-					<data:ProductQuality>1</data:ProductQuality>
-					<data:ServiceQuality>8</data:ServiceQuality>
-					<data:PurchaseFrequency>16</data:PurchaseFrequency>
-					<data:Gender__Female>0</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>0</data:Country__France>
-					<data:Country__Germany>0</data:Country__Germany>
-					<data:Country__UK>1</data:Country__UK>
-					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>0</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>84.4303</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>22</data:Age>
-					<data:Income>55879</data:Income>
-					<data:ProductQuality>9</data:ProductQuality>
-					<data:ServiceQuality>8</data:ServiceQuality>
+					<data:ServiceQuality>9</data:ServiceQuality>
 					<data:PurchaseFrequency>2</data:PurchaseFrequency>
 					<data:Gender__Female>0</data:Gender__Female>
 					<data:Country__Canada>0</data:Country__Canada>
@@ -3986,53 +3966,73 @@
 					<data:Country__Germany>1</data:Country__Germany>
 					<data:Country__UK>0</data:Country__UK>
 					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>0</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>1</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>92.89471</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>56</data:Age>
+					<data:Income>96976</data:Income>
+					<data:ProductQuality>9</data:ProductQuality>
+					<data:ServiceQuality>5</data:ServiceQuality>
+					<data:PurchaseFrequency>7</data:PurchaseFrequency>
+					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>1</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>0</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
 					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
 					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
 					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
 					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>98.44627</data:SatisfactionScore>
+					<data:SatisfactionScore>99.574295</data:SatisfactionScore>
+				</row>
+				<row>
+					<data:Age>46</data:Age>
+					<data:Income>116682</data:Income>
+					<data:ProductQuality>10</data:ProductQuality>
+					<data:ServiceQuality>4</data:ServiceQuality>
+					<data:PurchaseFrequency>17</data:PurchaseFrequency>
+					<data:Gender__Female>1</data:Gender__Female>
+					<data:Country__Canada>0</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
+					<data:Country__Germany>0</data:Country__Germany>
+					<data:Country__UK>0</data:Country__UK>
+					<data:Country__USA>1</data:Country__USA>
+					<data:FeedbackScore__High>1</data:FeedbackScore__High>
+					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
+					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
+					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
+					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
+					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
+					<data:SatisfactionScore>99.998375</data:SatisfactionScore>
 				</row>
 				<row>
 					<data:Age>27</data:Age>
-					<data:Income>73291</data:Income>
-					<data:ProductQuality>6</data:ProductQuality>
+					<data:Income>80243</data:Income>
+					<data:ProductQuality>9</data:ProductQuality>
 					<data:ServiceQuality>5</data:ServiceQuality>
-					<data:PurchaseFrequency>4</data:PurchaseFrequency>
+					<data:PurchaseFrequency>15</data:PurchaseFrequency>
 					<data:Gender__Female>0</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>1</data:Country__France>
+					<data:Country__Canada>1</data:Country__Canada>
+					<data:Country__France>0</data:Country__France>
 					<data:Country__Germany>0</data:Country__Germany>
 					<data:Country__UK>0</data:Country__UK>
 					<data:Country__USA>0</data:Country__USA>
 					<data:FeedbackScore__High>0</data:FeedbackScore__High>
 					<data:FeedbackScore__Low>1</data:FeedbackScore__Low>
 					<data:FeedbackScore__Medium>0</data:FeedbackScore__Medium>
-					<data:LoyaltyLevel__Bronze>0</data:LoyaltyLevel__Bronze>
-					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
-					<data:LoyaltyLevel__Silver>1</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>86.51042</data:SatisfactionScore>
-				</row>
-				<row>
-					<data:Age>45</data:Age>
-					<data:Income>53499</data:Income>
-					<data:ProductQuality>6</data:ProductQuality>
-					<data:ServiceQuality>9</data:ServiceQuality>
-					<data:PurchaseFrequency>17</data:PurchaseFrequency>
-					<data:Gender__Female>1</data:Gender__Female>
-					<data:Country__Canada>0</data:Country__Canada>
-					<data:Country__France>0</data:Country__France>
-					<data:Country__Germany>1</data:Country__Germany>
-					<data:Country__UK>0</data:Country__UK>
-					<data:Country__USA>0</data:Country__USA>
-					<data:FeedbackScore__High>0</data:FeedbackScore__High>
-					<data:FeedbackScore__Low>0</data:FeedbackScore__Low>
-					<data:FeedbackScore__Medium>1</data:FeedbackScore__Medium>
 					<data:LoyaltyLevel__Bronze>1</data:LoyaltyLevel__Bronze>
 					<data:LoyaltyLevel__Gold>0</data:LoyaltyLevel__Gold>
 					<data:LoyaltyLevel__Silver>0</data:LoyaltyLevel__Silver>
-					<data:SatisfactionScore>98.53056</data:SatisfactionScore>
+					<data:SatisfactionScore>98.16777</data:SatisfactionScore>
 				</row>
 			</InlineTable>
 		</ModelVerification>
