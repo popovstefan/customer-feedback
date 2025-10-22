@@ -72,6 +72,7 @@ Our _latest_ image is published on the Docker Hub, you can download it and run i
 ## Resources & Literature
 - The data set we'll work with is taken from [Kaggle](https://www.kaggle.com/datasets/jahnavipaliwal/customer-feedback-and-satisfaction/)
 - All Flink materials are taken from [Stream Processing with Apache Flink: Fundamentals, Implementation, and Operation of Streaming Applications](https://www.amazon.com/Stream-Processing-Apache-Flink-Implementation/dp/149197429X), chapters/sections: 1, 2, 3a, 4, 5, 8c, 8d, 9a.i, 9a.e.
+- Slides are saved in the `assets` directory
 
 # Acknowledgements
 
